@@ -25,7 +25,7 @@ d3.json(url, function(error, data) {
   var rets = 0;
   var count = 0;
 
-  data.Tweets.map( tweet => {
+  data.map( tweet => {
     if( count < 10 ) {
       tweets.push(tweet);
       var text = tweet.tweet_text;
