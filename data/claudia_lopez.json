@@ -1,0 +1,1632 @@
+{
+    "statuses": [
+        {
+            "created_at": "Sun Nov 26 22:44:14 +0000 2017",
+            "id": 934915729337577472,
+            "id_str": "934915729337577472",
+            "text": "Gracias Yopal por haber vencido el miedo y usado el poder de su voto libre para derrotar la corrupción!… https://t.co/zS95VOwObc",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/zS95VOwObc",
+                        "expanded_url": "https://twitter.com/i/web/status/934915729337577472",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            105,
+                            128
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 979,
+            "favorite_count": 2885,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Mon Nov 27 20:40:07 +0000 2017",
+            "id": 935246882523238400,
+            "id_str": "935246882523238400",
+            "text": "La desconozco Senadora. Acepte esta primera derrota con altura que le esperan muchas más. Y entienda que la mentira… https://t.co/F77tk4ZTxR",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/F77tk4ZTxR",
+                        "expanded_url": "https://twitter.com/i/web/status/935246882523238400",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": true,
+            "quoted_status_id": 935173982021718017,
+            "quoted_status_id_str": "935173982021718017",
+            "quoted_status": {
+                "created_at": "Mon Nov 27 15:50:26 +0000 2017",
+                "id": 935173982021718017,
+                "id_str": "935173982021718017",
+                "text": "Me pregunto: ¿De dónde sacaron los Verdes y su alianza, tanto dinero para la campaña a la Alcaldía de Yopal? Esto e… https://t.co/osPmCNkIXd",
+                "truncated": true,
+                "entities": {
+                    "hashtags": [],
+                    "symbols": [],
+                    "user_mentions": [],
+                    "urls": [
+                        {
+                            "url": "https://t.co/osPmCNkIXd",
+                            "expanded_url": "https://twitter.com/i/web/status/935173982021718017",
+                            "display_url": "twitter.com/i/web/status/9…",
+                            "indices": [
+                                117,
+                                140
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "result_type": "popular",
+                    "iso_language_code": "es"
+                },
+                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+                "in_reply_to_status_id": null,
+                "in_reply_to_status_id_str": null,
+                "in_reply_to_user_id": null,
+                "in_reply_to_user_id_str": null,
+                "in_reply_to_screen_name": null,
+                "user": {
+                    "id": 262349588,
+                    "id_str": "262349588",
+                    "name": "María del Rosario G.",
+                    "screen_name": "charoguerra",
+                    "location": "Bogotá",
+                    "description": "Senadora de Colombia 2014-2018 y Precandidata Presidencial por el Partido @CeDemocratico Economista y Profesora universitaria. #ManoFirmeOtraVez 🇨🇴",
+                    "url": "https://t.co/4xueoGewlj",
+                    "entities": {
+                        "url": {
+                            "urls": [
+                                {
+                                    "url": "https://t.co/4xueoGewlj",
+                                    "expanded_url": "http://mariadelrosarioguerra.co",
+                                    "display_url": "mariadelrosarioguerra.co",
+                                    "indices": [
+                                        0,
+                                        23
+                                    ]
+                                }
+                            ]
+                        },
+                        "description": {
+                            "urls": []
+                        }
+                    },
+                    "protected": false,
+                    "followers_count": 37410,
+                    "friends_count": 302,
+                    "listed_count": 200,
+                    "created_at": "Mon Mar 07 21:53:27 +0000 2011",
+                    "favourites_count": 937,
+                    "utc_offset": -18000,
+                    "time_zone": "Eastern Time (US & Canada)",
+                    "geo_enabled": true,
+                    "verified": true,
+                    "statuses_count": 18240,
+                    "lang": "es",
+                    "contributors_enabled": false,
+                    "is_translator": false,
+                    "is_translation_enabled": false,
+                    "profile_background_color": "C0DEED",
+                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                    "profile_background_tile": false,
+                    "profile_image_url": "http://pbs.twimg.com/profile_images/894522631218749441/aIXtta99_normal.jpg",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/894522631218749441/aIXtta99_normal.jpg",
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/262349588/1502105812",
+                    "profile_link_color": "1DA1F2",
+                    "profile_sidebar_border_color": "C0DEED",
+                    "profile_sidebar_fill_color": "DDEEF6",
+                    "profile_text_color": "333333",
+                    "profile_use_background_image": true,
+                    "has_extended_profile": false,
+                    "default_profile": true,
+                    "default_profile_image": false,
+                    "following": false,
+                    "follow_request_sent": false,
+                    "notifications": false,
+                    "translator_type": "none"
+                },
+                "geo": null,
+                "coordinates": null,
+                "place": null,
+                "contributors": null,
+                "is_quote_status": false,
+                "retweet_count": 691,
+                "favorite_count": 645,
+                "favorited": false,
+                "retweeted": false,
+                "lang": "es"
+            },
+            "retweet_count": 1750,
+            "favorite_count": 4052,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Mon Nov 27 17:22:02 +0000 2017",
+            "id": 935197033123729408,
+            "id_str": "935197033123729408",
+            "text": "Si el voto libre ganó en Yopal, derrotando en las urnas a todas las maquinarias uribistas, vargaslleristas y santis… https://t.co/hgjwqiQzRB",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/hgjwqiQzRB",
+                        "expanded_url": "https://twitter.com/i/web/status/935197033123729408",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": true,
+            "quoted_status_id": 935162047876206593,
+            "quoted_status_id_str": "935162047876206593",
+            "quoted_status": {
+                "created_at": "Mon Nov 27 15:03:01 +0000 2017",
+                "id": 935162047876206593,
+                "id_str": "935162047876206593",
+                "text": "Con el triunfo de Leonardo Puentes en Yopal, la coalición de @JERobledo @ClaudiaLopez y @sergio_fajardo pasó con cr… https://t.co/5Rmt9MenuM",
+                "truncated": true,
+                "entities": {
+                    "hashtags": [],
+                    "symbols": [],
+                    "user_mentions": [
+                        {
+                            "screen_name": "JERobledo",
+                            "name": "Jorge Robledo",
+                            "id": 268322810,
+                            "id_str": "268322810",
+                            "indices": [
+                                61,
+                                71
+                            ]
+                        },
+                        {
+                            "screen_name": "ClaudiaLopez",
+                            "name": "Claudia López",
+                            "id": 137908875,
+                            "id_str": "137908875",
+                            "indices": [
+                                72,
+                                85
+                            ]
+                        },
+                        {
+                            "screen_name": "sergio_fajardo",
+                            "name": "Sergio Fajardo",
+                            "id": 25185308,
+                            "id_str": "25185308",
+                            "indices": [
+                                88,
+                                103
+                            ]
+                        }
+                    ],
+                    "urls": [
+                        {
+                            "url": "https://t.co/5Rmt9MenuM",
+                            "expanded_url": "https://twitter.com/i/web/status/935162047876206593",
+                            "display_url": "twitter.com/i/web/status/9…",
+                            "indices": [
+                                117,
+                                140
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "result_type": "popular",
+                    "iso_language_code": "es"
+                },
+                "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+                "in_reply_to_status_id": null,
+                "in_reply_to_status_id_str": null,
+                "in_reply_to_user_id": null,
+                "in_reply_to_user_id_str": null,
+                "in_reply_to_screen_name": null,
+                "user": {
+                    "id": 24376343,
+                    "id_str": "24376343",
+                    "name": "La Silla Vacía",
+                    "screen_name": "lasillavacia",
+                    "location": "Bogotá",
+                    "description": "La principal cuenta de Twitter del medio especializado en poder en Colombia. Acá trinamos nuestros contenidos e interactuamos con todos ustedes.",
+                    "url": "http://t.co/j4be8Wjd6S",
+                    "entities": {
+                        "url": {
+                            "urls": [
+                                {
+                                    "url": "http://t.co/j4be8Wjd6S",
+                                    "expanded_url": "http://www.lasillavacia.com",
+                                    "display_url": "lasillavacia.com",
+                                    "indices": [
+                                        0,
+                                        22
+                                    ]
+                                }
+                            ]
+                        },
+                        "description": {
+                            "urls": []
+                        }
+                    },
+                    "protected": false,
+                    "followers_count": 1122505,
+                    "friends_count": 3154,
+                    "listed_count": 3828,
+                    "created_at": "Sat Mar 14 14:41:06 +0000 2009",
+                    "favourites_count": 2702,
+                    "utc_offset": -18000,
+                    "time_zone": "Bogota",
+                    "geo_enabled": true,
+                    "verified": true,
+                    "statuses_count": 40382,
+                    "lang": "es",
+                    "contributors_enabled": false,
+                    "is_translator": false,
+                    "is_translation_enabled": false,
+                    "profile_background_color": "00ACF9",
+                    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000051440564/220da40c3fcbe28aab5ef8f67442cbd3.jpeg",
+                    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000051440564/220da40c3fcbe28aab5ef8f67442cbd3.jpeg",
+                    "profile_background_tile": false,
+                    "profile_image_url": "http://pbs.twimg.com/profile_images/926542153991512064/6Hsgw4ug_normal.jpg",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/926542153991512064/6Hsgw4ug_normal.jpg",
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/24376343/1509555885",
+                    "profile_link_color": "0084B4",
+                    "profile_sidebar_border_color": "FFFFFF",
+                    "profile_sidebar_fill_color": "DDFFCC",
+                    "profile_text_color": "333333",
+                    "profile_use_background_image": true,
+                    "has_extended_profile": false,
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "following": true,
+                    "follow_request_sent": false,
+                    "notifications": false,
+                    "translator_type": "none"
+                },
+                "geo": null,
+                "coordinates": null,
+                "place": null,
+                "contributors": null,
+                "is_quote_status": false,
+                "retweet_count": 252,
+                "favorite_count": 549,
+                "favorited": false,
+                "retweeted": false,
+                "possibly_sensitive": false,
+                "lang": "es"
+            },
+            "retweet_count": 315,
+            "favorite_count": 828,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Mon Nov 27 02:47:46 +0000 2017",
+            "id": 934977016532783104,
+            "id_str": "934977016532783104",
+            "text": "Gracias a @elespectador por señalar el abuso de la Corte Suprema al pretender censurar las opiniones incómodas al p… https://t.co/ZxJbaqHMyi",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "elespectador",
+                        "name": "El Espectador",
+                        "id": 14834302,
+                        "id_str": "14834302",
+                        "indices": [
+                            10,
+                            23
+                        ]
+                    }
+                ],
+                "urls": [
+                    {
+                        "url": "https://t.co/ZxJbaqHMyi",
+                        "expanded_url": "https://twitter.com/i/web/status/934977016532783104",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": true,
+            "quoted_status_id": 934919707748003840,
+            "quoted_status_id_str": "934919707748003840",
+            "quoted_status": {
+                "created_at": "Sun Nov 26 23:00:02 +0000 2017",
+                "id": 934919707748003840,
+                "id_str": "934919707748003840",
+                "text": "#EditorialEE: La opinión entutelada.\nPor: El Espectador. \nhttps://t.co/UEpIWg5u4X https://t.co/ITJv2zVWCE",
+                "truncated": false,
+                "entities": {
+                    "hashtags": [
+                        {
+                            "text": "EditorialEE",
+                            "indices": [
+                                0,
+                                12
+                            ]
+                        }
+                    ],
+                    "symbols": [],
+                    "user_mentions": [],
+                    "urls": [
+                        {
+                            "url": "https://t.co/UEpIWg5u4X",
+                            "expanded_url": "http://bit.ly/2BoTYAX",
+                            "display_url": "bit.ly/2BoTYAX",
+                            "indices": [
+                                58,
+                                81
+                            ]
+                        }
+                    ],
+                    "media": [
+                        {
+                            "id": 934845224911867905,
+                            "id_str": "934845224911867905",
+                            "indices": [
+                                82,
+                                105
+                            ],
+                            "media_url": "http://pbs.twimg.com/media/DPk8x27XkAEbOVK.jpg",
+                            "media_url_https": "https://pbs.twimg.com/media/DPk8x27XkAEbOVK.jpg",
+                            "url": "https://t.co/ITJv2zVWCE",
+                            "display_url": "pic.twitter.com/ITJv2zVWCE",
+                            "expanded_url": "https://twitter.com/elespectador/status/934919707748003840/photo/1",
+                            "type": "photo",
+                            "sizes": {
+                                "small": {
+                                    "w": 680,
+                                    "h": 383,
+                                    "resize": "fit"
+                                },
+                                "large": {
+                                    "w": 960,
+                                    "h": 540,
+                                    "resize": "fit"
+                                },
+                                "medium": {
+                                    "w": 960,
+                                    "h": 540,
+                                    "resize": "fit"
+                                },
+                                "thumb": {
+                                    "w": 150,
+                                    "h": 150,
+                                    "resize": "crop"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "extended_entities": {
+                    "media": [
+                        {
+                            "id": 934845224911867905,
+                            "id_str": "934845224911867905",
+                            "indices": [
+                                82,
+                                105
+                            ],
+                            "media_url": "http://pbs.twimg.com/media/DPk8x27XkAEbOVK.jpg",
+                            "media_url_https": "https://pbs.twimg.com/media/DPk8x27XkAEbOVK.jpg",
+                            "url": "https://t.co/ITJv2zVWCE",
+                            "display_url": "pic.twitter.com/ITJv2zVWCE",
+                            "expanded_url": "https://twitter.com/elespectador/status/934919707748003840/photo/1",
+                            "type": "photo",
+                            "sizes": {
+                                "small": {
+                                    "w": 680,
+                                    "h": 383,
+                                    "resize": "fit"
+                                },
+                                "large": {
+                                    "w": 960,
+                                    "h": 540,
+                                    "resize": "fit"
+                                },
+                                "medium": {
+                                    "w": 960,
+                                    "h": 540,
+                                    "resize": "fit"
+                                },
+                                "thumb": {
+                                    "w": 150,
+                                    "h": 150,
+                                    "resize": "crop"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "metadata": {
+                    "result_type": "popular",
+                    "iso_language_code": "es"
+                },
+                "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+                "in_reply_to_status_id": null,
+                "in_reply_to_status_id_str": null,
+                "in_reply_to_user_id": null,
+                "in_reply_to_user_id_str": null,
+                "in_reply_to_screen_name": null,
+                "user": {
+                    "id": 14834302,
+                    "id_str": "14834302",
+                    "name": "El Espectador",
+                    "screen_name": "elespectador",
+                    "location": "Bogotá, Colombia",
+                    "description": "Noticias de Colombia y el mundo. El Espectador, el valor de la información. @deportesEE, @EEopinion, @EspectadorVideo, @EspectadorBlogs, @TecnoEspectador",
+                    "url": "https://t.co/Pxh3yhT0A1",
+                    "entities": {
+                        "url": {
+                            "urls": [
+                                {
+                                    "url": "https://t.co/Pxh3yhT0A1",
+                                    "expanded_url": "http://www.elespectador.com/",
+                                    "display_url": "elespectador.com",
+                                    "indices": [
+                                        0,
+                                        23
+                                    ]
+                                }
+                            ]
+                        },
+                        "description": {
+                            "urls": []
+                        }
+                    },
+                    "protected": false,
+                    "followers_count": 4422893,
+                    "friends_count": 54565,
+                    "listed_count": 11399,
+                    "created_at": "Mon May 19 16:06:03 +0000 2008",
+                    "favourites_count": 10952,
+                    "utc_offset": -18000,
+                    "time_zone": "Bogota",
+                    "geo_enabled": true,
+                    "verified": true,
+                    "statuses_count": 629987,
+                    "lang": "es",
+                    "contributors_enabled": false,
+                    "is_translator": false,
+                    "is_translation_enabled": false,
+                    "profile_background_color": "000000",
+                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                    "profile_background_tile": false,
+                    "profile_image_url": "http://pbs.twimg.com/profile_images/754008627866992640/CsiUfE0y_normal.jpg",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/754008627866992640/CsiUfE0y_normal.jpg",
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/14834302/1505412567",
+                    "profile_link_color": "DD2E44",
+                    "profile_sidebar_border_color": "000000",
+                    "profile_sidebar_fill_color": "000000",
+                    "profile_text_color": "000000",
+                    "profile_use_background_image": false,
+                    "has_extended_profile": false,
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "following": true,
+                    "follow_request_sent": false,
+                    "notifications": false,
+                    "translator_type": "regular"
+                },
+                "geo": null,
+                "coordinates": null,
+                "place": null,
+                "contributors": null,
+                "is_quote_status": false,
+                "retweet_count": 66,
+                "favorite_count": 88,
+                "favorited": false,
+                "retweeted": false,
+                "possibly_sensitive": false,
+                "lang": "es"
+            },
+            "retweet_count": 348,
+            "favorite_count": 734,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Mon Nov 27 15:19:20 +0000 2017",
+            "id": 935166155559460864,
+            "id_str": "935166155559460864",
+            "text": "Icetex sigue cobrando intereses sobre intereses a tasas que se acercan a la usura. ¡Esto debe cambiar! #EsConEducación",
+            "truncated": false,
+            "entities": {
+                "hashtags": [
+                    {
+                        "text": "EsConEducación",
+                        "indices": [
+                            103,
+                            118
+                        ]
+                    }
+                ],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": []
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 307,
+            "favorite_count": 821,
+            "favorited": false,
+            "retweeted": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Sun Nov 26 22:05:50 +0000 2017",
+            "id": 934906064763572225,
+            "id_str": "934906064763572225",
+            "text": "Estamos derrotando al uribismo, #CorrupcionRadical y toda la maquinaria de la politiquería en Yopal! Demostramos qu… https://t.co/q7ns9v7ZD6",
+            "truncated": true,
+            "entities": {
+                "hashtags": [
+                    {
+                        "text": "CorrupcionRadical",
+                        "indices": [
+                            32,
+                            50
+                        ]
+                    }
+                ],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/q7ns9v7ZD6",
+                        "expanded_url": "https://twitter.com/i/web/status/934906064763572225",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 361,
+            "favorite_count": 1024,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Tue Nov 28 00:19:34 +0000 2017",
+            "id": 935302110832418816,
+            "id_str": "935302110832418816",
+            "text": "Quiero que esta sea la generación que logró terminar el conflicto armado, derrotar la corrupción en las urnas, cons… https://t.co/2TBSGVnay4",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/2TBSGVnay4",
+                        "expanded_url": "https://twitter.com/i/web/status/935302110832418816",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 296,
+            "favorite_count": 825,
+            "favorited": false,
+            "retweeted": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Sun Nov 26 23:28:29 +0000 2017",
+            "id": 934926864493240320,
+            "id_str": "934926864493240320",
+            "text": "Como quisiera estar en Yopal ahora para repetir este abrazo mi @leo_puentes. Han sido tantas batallas juntos: el ca… https://t.co/JN6CQfMCcr",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "leo_puentes",
+                        "name": "Leonardo Puentes",
+                        "id": 488524617,
+                        "id_str": "488524617",
+                        "indices": [
+                            63,
+                            75
+                        ]
+                    }
+                ],
+                "urls": [
+                    {
+                        "url": "https://t.co/JN6CQfMCcr",
+                        "expanded_url": "https://twitter.com/i/web/status/934926864493240320",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 183,
+            "favorite_count": 651,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Sun Nov 26 17:21:46 +0000 2017",
+            "id": 934834579927699462,
+            "id_str": "934834579927699462",
+            "text": "Gracias a @elespectador por develar el intento de censura de la Corte Suprema a la libertad de expresión y a las op… https://t.co/BKXcvt7Dik",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "elespectador",
+                        "name": "El Espectador",
+                        "id": 14834302,
+                        "id_str": "14834302",
+                        "indices": [
+                            10,
+                            23
+                        ]
+                    }
+                ],
+                "urls": [
+                    {
+                        "url": "https://t.co/BKXcvt7Dik",
+                        "expanded_url": "https://twitter.com/i/web/status/934834579927699462",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 333,
+            "favorite_count": 567,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        },
+        {
+            "created_at": "Mon Nov 27 22:54:01 +0000 2017",
+            "id": 935280581352534017,
+            "id_str": "935280581352534017",
+            "text": "Esto es inaudito! Denunciaremos disciplinaria y penalmente al Presidente del Concejo de Santa Rosa de Cabal por su… https://t.co/OACSJefHFi",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/OACSJefHFi",
+                        "expanded_url": "https://twitter.com/i/web/status/935280581352534017",
+                        "display_url": "twitter.com/i/web/status/9…",
+                        "indices": [
+                            116,
+                            139
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "result_type": "popular",
+                "iso_language_code": "es"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 137908875,
+                "id_str": "137908875",
+                "name": "Claudia López",
+                "screen_name": "ClaudiaLopez",
+                "location": "Bogotá, DC, Colombia",
+                "description": "Senadora, Candidata Presidencial Alianza Verde.Nuestra generación terminará la guerra y construirá con decencia una Colombia incluyente clopezsenado10@gmail.com",
+                "url": "https://t.co/NJwOrsXwhW",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/NJwOrsXwhW",
+                                "expanded_url": "https://m.facebook.com/ClaudiaLopezCL/",
+                                "display_url": "m.facebook.com/ClaudiaLopezCL/",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 952263,
+                "friends_count": 2045,
+                "listed_count": 2528,
+                "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+                "favourites_count": 16509,
+                "utc_offset": -18000,
+                "time_zone": "Bogota",
+                "geo_enabled": false,
+                "verified": true,
+                "statuses_count": 44188,
+                "lang": "es",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "4A913C",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/622196318484754432/T_TAfBM4.png",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/137908875/1508964213",
+                "profile_link_color": "00A232",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": true,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": null,
+            "contributors": null,
+            "is_quote_status": true,
+            "quoted_status_id": 935230996152188928,
+            "quoted_status_id_str": "935230996152188928",
+            "quoted_status": {
+                "created_at": "Mon Nov 27 19:36:59 +0000 2017",
+                "id": 935230996152188928,
+                "id_str": "935230996152188928",
+                "text": "Si no recibo protección de las autoridades, renunciaré al Concejo Municipal, estamos ya cansados de denunciar estos… https://t.co/HjhYydNUlH",
+                "truncated": true,
+                "entities": {
+                    "hashtags": [],
+                    "symbols": [],
+                    "user_mentions": [],
+                    "urls": [
+                        {
+                            "url": "https://t.co/HjhYydNUlH",
+                            "expanded_url": "https://twitter.com/i/web/status/935230996152188928",
+                            "display_url": "twitter.com/i/web/status/9…",
+                            "indices": [
+                                117,
+                                140
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "result_type": "popular",
+                    "iso_language_code": "es"
+                },
+                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+                "in_reply_to_status_id": null,
+                "in_reply_to_status_id_str": null,
+                "in_reply_to_user_id": null,
+                "in_reply_to_user_id_str": null,
+                "in_reply_to_screen_name": null,
+                "user": {
+                    "id": 17891333,
+                    "id_str": "17891333",
+                    "name": "Rodrigo Toro",
+                    "screen_name": "JoseRodrigoToro",
+                    "location": "Santa Rosa de Cabal, Colombia",
+                    "description": "Concejal de Santa Rosa de Cabal por el partido Alianza Verde, ejercemos control político y trabajamos por el medio ambiente, la cultura y el turismo.",
+                    "url": null,
+                    "entities": {
+                        "description": {
+                            "urls": []
+                        }
+                    },
+                    "protected": false,
+                    "followers_count": 1493,
+                    "friends_count": 223,
+                    "listed_count": 2,
+                    "created_at": "Fri Dec 05 05:39:32 +0000 2008",
+                    "favourites_count": 475,
+                    "utc_offset": -21600,
+                    "time_zone": "Central Time (US & Canada)",
+                    "geo_enabled": true,
+                    "verified": false,
+                    "statuses_count": 99,
+                    "lang": "es",
+                    "contributors_enabled": false,
+                    "is_translator": false,
+                    "is_translation_enabled": false,
+                    "profile_background_color": "C0DEED",
+                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                    "profile_background_tile": false,
+                    "profile_image_url": "http://pbs.twimg.com/profile_images/770255005563707395/ozCgS8Kh_normal.jpg",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/770255005563707395/ozCgS8Kh_normal.jpg",
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/17891333/1505063858",
+                    "profile_link_color": "1DA1F2",
+                    "profile_sidebar_border_color": "C0DEED",
+                    "profile_sidebar_fill_color": "DDEEF6",
+                    "profile_text_color": "333333",
+                    "profile_use_background_image": true,
+                    "has_extended_profile": true,
+                    "default_profile": true,
+                    "default_profile_image": false,
+                    "following": false,
+                    "follow_request_sent": false,
+                    "notifications": false,
+                    "translator_type": "none"
+                },
+                "geo": null,
+                "coordinates": null,
+                "place": null,
+                "contributors": null,
+                "is_quote_status": false,
+                "retweet_count": 337,
+                "favorite_count": 291,
+                "favorited": false,
+                "retweeted": false,
+                "possibly_sensitive": false,
+                "lang": "es"
+            },
+            "retweet_count": 263,
+            "favorite_count": 372,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "es"
+        }
+    ],
+    "search_metadata": {
+        "completed_in": 0.05,
+        "max_id": 0,
+        "max_id_str": "0",
+        "next_results": "?max_id=934834579927699461&q=from%3AClaudiaLopez&count=10&include_entities=1&result_type=popular",
+        "query": "from%3AClaudiaLopez",
+        "count": 10,
+        "since_id": 0,
+        "since_id_str": "0"
+    }
+}
