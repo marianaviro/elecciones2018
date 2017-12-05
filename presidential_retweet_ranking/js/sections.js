@@ -147,15 +147,15 @@ let scrollVis = function() {
 			.append('text')
 			.attr('class', 'title vis-title')
 			.attr('x', width / 2)
-			.attr('y', height / 3)
-			.text('¿Quién sigue a quién?');
+			.attr('y', height / 5 + 100)
+			.text('¿QUIÉN TUVO MAYOR VISIBILIDAD?');
 
 		g
 			.append('text')
 			.attr('class', 'sub-title vis-title')
 			.attr('x', width / 2)
-			.attr('y', height / 3 + height / 5)
-			.text('Las redes entre los candidatos');
+			.attr('y', height / 5 + height / 10 + 100)
+			.text('En base en más de 100.000 retweets de candidatos');
 
 		g.selectAll('.vis-title').attr('opacity', 0);
 
@@ -213,6 +213,7 @@ let scrollVis = function() {
 		let imagesE = images
 			.enter()
 			.append('svg:image')
+			.attr('class', d => `${d.twitter_handle}_exit`)
 			.classed('image', true);
 
 		// Tip
@@ -245,6 +246,7 @@ let scrollVis = function() {
 		let circlesE = circles
 			.enter()
 			.append('circle')
+			.attr('class', d => `${d.twitter_handle}_exit`)
 			.classed('circle', true);
 
 		circles = circles
@@ -331,6 +333,7 @@ let scrollVis = function() {
 				.datum(candidato.growth)
 				.attr('id', 'cantidad')
 				.attr('fill', 'none')
+				.attr('class', `${candidato.twitter_handle}_exit`)
 				.attr('stroke', colors(candidato.twitter_handle))
 				.attr('stroke-width', 5)
 				.attr('d', seguidores)
@@ -356,6 +359,7 @@ let scrollVis = function() {
 		activateFunctions[0] = showTitle;
 		activateFunctions[1] = showBarGraph;
 		activateFunctions[2] = showLineChart;
+		activateFunctions[3] = expandLineChart;
 
 		// updateFunctions are called while
 		// in a particular section to update
@@ -392,6 +396,8 @@ let scrollVis = function() {
 	 *
 	 */
 	function showTitle() {
+		g.selectAll('.vis-title').attr('opacity', 1);
+
 		g
 			.selectAll('.bar')
 			.transition()
@@ -448,6 +454,8 @@ let scrollVis = function() {
 	}
 
 	function showBarGraph() {
+		g.selectAll('.vis-title').attr('opacity', 0);
+
 		g
 			.selectAll('.bar')
 			.transition()
@@ -518,6 +526,8 @@ let scrollVis = function() {
 	}
 
 	function showLineChart() {
+		g.selectAll('.vis-title').attr('opacity', 0);
+
 		g
 			.selectAll('.bar')
 			.transition()
@@ -581,59 +591,95 @@ let scrollVis = function() {
 			.call(xAxis);
 	}
 
-	function highlightRobledo(edges) {
-		// Higlight JERobledo
-		g
-			.selectAll('.node image')
-			.filter(d => d.screenName === 'JERobledo')
-			.classed('greyed', false)
-			.transition()
-			.duration(600)
-			.attr('x', -30)
-			.attr('y', -30)
-			.attr('width', 60)
-			.attr('height', 60)
-			.attr('opacity', 1);
-
-		//Highlight JERobledo followers
-		g
-			.selectAll('.node image')
-			.filter(d => isFollower(d, 'JERobledo', edges))
-			.classed('greyed', false)
-			.transition()
-			.duration(600)
-			.attr('x', -22)
-			.attr('y', -22)
-			.attr('width', 44)
-			.attr('height', 44)
-			.attr('opacity', 1);
-
-		//Hide others
-		g
-			.selectAll('.node image')
-			.filter(d => !isFollower(d, 'JERobledo', edges))
-			.filter(d => d.screenName !== 'JERobledo')
-			.classed('greyed', true)
-			.transition()
-			.duration(600)
-			.attr('x', -20)
-			.attr('y', -20)
-			.attr('width', 40)
-			.attr('height', 40)
-			.attr('opacity', 0.7);
-
-		//Highlight JERobledo links
-		g
-			.selectAll('.link')
-			.transition()
-			.duration(600)
-			.attr('opacity', d => (d.target.screenName === 'JERobledo' ? 1 : 0));
+	function expandLineChart(edges) {
+		g.selectAll('.vis-title').attr('opacity', 0);
 
 		g
-			.select('.y-axis')
+			.selectAll('.bar')
+			.transition()
+			.duration(0)
+			.attr('opacity', 0);
+
+		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
 			.transition()
 			.duration(600)
 			.attr('opacity', 1);
+
+		// g
+		// 	.selectAll('.image')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('y', 600)
+		// 	.attr('opacity', 1);
+		//
+		// g
+		// 	.selectAll('.circle')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('cy', 620)
+		// 	.attr('opacity', 1);
+
+		// g
+		// 	.selectAll('.sergio_fajardo_exit .TimoFARC
+		// 			.petrogustavo
+		// 			.piedadcordoba
+		// 			.JERobledo
+		// 			.ClaraLopezObre
+		// 			.CristoBustos
+		// 			.ClaudiaLopez
+		// 			.sergio_fajardo
+		// 			.DeLaCalleHum
+		// 			.FrankPearl
+		// 			.German_Vargas
+		// 			.IvanDuque
+		// 			.CarlosHolmesTru
+		// 			.PinzonBueno
+		// 			.charoguerra
+		// 			.mluciaramirez
+		// 			.PalomaValenciaL
+		// 			.LuisAlfreRamos
+		// 			.RafaNietoLoaiza
+		// 			.A_OrdonezM	')
+		// 	.transition()
+		// 	.duration(1200)
+		// 	.attr('opacity', 0);
+
+		// Poner line chart:
+		g
+			.selectAll('.line')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1)
+			.call(xAxis);
 	}
 
 	function highlightMlucia(graphNodes, edges) {

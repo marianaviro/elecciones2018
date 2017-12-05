@@ -49,7 +49,7 @@
 
 #vis .title {
 	font-family: 'Comfortaa', cursive;
-	font-size: 60px;
+	font-size: 50px;
 	text-anchor: middle;
 }
 
@@ -207,7 +207,7 @@ html {
 #vis .title {
 	font-family: 'Barlow Condensed', sans-serif;
 	font-weight: 800;
-	font-size: 60px;
+	font-size: 55px;
 	text-anchor: middle;
 	letter-spacing: 4px;
 	padding-left: 50px;
