@@ -41,7 +41,8 @@ let scrollVis = function () {
     // progress through the section.
     let updateFunctions = [];
 
-    let colorScale = d3.scaleOrdinal().range(['#FF5733', '#C70039', '#900C3F', '#581845']);
+    let colorScale = d3.scaleOrdinal()
+        .range(['#FF5733', '#C70039', '#900C3F', '#581845']);
     // let colorScale = d3.scaleLinear().range(['#FF5733', '#581845']);
 
     //Parse date
@@ -53,21 +54,25 @@ let scrollVis = function () {
 
     //Y Axis
     var y = d3.scaleLinear()
-        .range([height-400, 0]);
+        .range([height - 400, 0]);
 
     //Line
     var line = d3.line()
-        .x(function(d) { return d.created_at })
-        .y(function(d) { return d.retweets });
+        .x(function (d) {
+            return d.created_at;
+        })
+        .y(function (d) {
+            return d.retweets;
+        });
 
     const yAxis = d3.axisRight(y)
         .tickSize(width)
         .tickFormat(function (d) {
-          let sub = y(d) - y.range()[1];
-          console.log(y(d) - y.range()[1]);
-          return sub > 6.53
-              ? "\xa0" + d
-              : d + " seguidores";
+            let sub = y(d) - y.range()[1];
+            console.log(y(d) - y.range()[1]);
+            return sub > 6.53
+                ? "\xa0" + d
+                : d + " seguidores";
         });
 
     /**
@@ -113,101 +118,127 @@ let scrollVis = function () {
      */
     var setupVis = function (rawData) {
 
-      g.append('text')
-          .attr('class', 'title vis-title')
-          .attr('x', width / 2)
-          .attr('y', height / 15)
-          .text('¿QUIÉN USA BOTS?');
-
-      var descr = "Algunos candidatos hacen uso de bots para aumentar su popularidad" + '\n' + "en redes. Un indicio seguro de esto son picos extraños en la cantidad" + '\n' + "de retweets por segundo.";
-
-      g.append('text')
-          .attr('class', 'sub-title vis-title')
-          .attr('x', width / 2)
-          .attr('y', (height / 15) + (height / 15))
-          .text(descr);
-
-      g.selectAll('.vis-title')
-          .attr('opacity', 0);
-
-      g.append('g')
-          .classed('y-axis', true)
-          .attr('opacity', 0)
-          .call(customYAxis);
+        g.append("clipPath")
+            .attr("id", "rectClip")
+            .append("rect")
+            .attr("width", width)
+            .attr("height", height);
 
 
-      colorScale.domain([rawData[1].id_tweet].concat(rawData[0].map(d => d.id_tweet)));
+        g.append('text')
+            .attr('class', 'title vis-title')
+            .attr('x', width / 2)
+            .attr('y', height / 15)
+            .text('¿QUIÉN USA BOTS?');
 
-      setupSections(rawData);
+        var descr = "Algunos candidatos hacen uso de bots para aumentar su popularidad" + '\n' + "en redes. Un indicio seguro de esto son picos extraños en la cantidad" + '\n' + "de retweets por segundo.";
+
+        g.append('text')
+            .attr('class', 'sub-title vis-title')
+            .attr('x', width / 2)
+            .attr('y', (height / 15) + (height / 15))
+            .text(descr);
+
+        g.selectAll('.vis-title')
+            .attr('opacity', 0);
+
+        g.append('g')
+            .classed('y-axis', true)
+            .attr('opacity', 0)
+            .call(customYAxis);
+
+        g.append('g')
+            .classed('areas', true);
+
+        colorScale.domain([rawData[1].id_tweet].concat(rawData[0].map(d => d.id_tweet)));
+
+        setupSections(rawData);
     };
 
-    var paintVis = function(tweet) {
+    var paintVis = function (tweet) {
 
-      console.log(tweet);
-      var retweets = tweet.Retweets;
+        d3.select("#rectClip rect")
+            .transition().duration(0)
+            //.attr("width", 0);
+            .attr('height', 0);
 
-      var count = 0;
+        d3.select("#rectClip rect")
+            .transition().duration(600)
+            //.attr("width", width);
+            .attr("height", width);
 
-      var nested = d3.nest()
-          .key(function(d) { return parseDate(d.created_at); })
-          .rollup(function (d) { count += d.length; return count; })
-          .entries(retweets);
+        console.log(tweet);
+        var retweets = tweet.Retweets;
 
-      var area = d3.area()
-          .x(function(d) { return x(new Date(d.key)); })
-          .y0(height-400)
-          .y1(function(d) { return y(d.value); });
+        var count = 0;
 
-      var line = d3.line()
-          .x(function(d) { return x(new Date(d.key)); })
-          .y(function(d) { return y(d.value); });
+        var nested = d3.nest()
+            .key(function (d) {
+                return parseDate(d.created_at);
+            })
+            .rollup(function (d) {
+                count += d.length;
+                return count;
+            })
+            .entries(retweets);
 
-      y.domain(d3.extent(nested, function(d){ return d.value }));
-      x.domain(d3.extent(nested, function(d){ return new Date(d.key) }));
+        nested = nested.filter(d => d.value <= 200);
 
-      g.selectAll('.vis-title')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        var area = d3.area()
+            .x(function (d) {
+                return x(new Date(d.key));
+            })
+            .y0(height - 400)
+            .y1(function (d) {
+                return y(d.value);
+            });
 
-      g.select('.area')
-          .transition()
-          .duration(0)
-          .remove();
+        var line = d3.line()
+            .x(function (d) {
+                return x(new Date(d.key));
+            })
+            .y(function (d) {
+                return y(d.value);
+            });
 
-      g.select('.line')
-          .transition()
-          .duration(0)
-          .remove();
+        y.domain(d3.extent(nested, function (d) {
+            return d.value;
+        }));
+        x.domain(d3.extent(nested, function (d) {
+            return new Date(d.key);
+        }));
 
-      g.append('path')
-          .attr('class', 'area')
-          .datum(nested)
-          .transition()
-          .duration(600)
-          .attr("fill", d => colorScale(tweet.id_tweet))
-          .attr("stroke", "none")
-          .attr("d", area);
+        g.selectAll('.vis-title')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
 
-      g.append('path')
-          .attr('class', 'line')
-          .datum(nested)
-          .transition()
-          .duration(600)
-          .attr("fill", "none")
-          .attr("stroke", "black")
-          .attr("stroke-width", 1.5)
-          .attr("d", line);
-
-      g.select('.y-axis')
-          .raise()
-          .transition()
-          .duration(600)
-          .attr('opacity', 1)
-          .call(customYAxis);
+        let areas = g.select('.areas')
+            .selectAll('.area')
+            .data([nested]);
 
 
-    }
+        let areasE = areas.enter()
+            .append('path')
+            .classed('area', true);
+
+        areas.merge(areasE)
+            .transition()
+            .duration(0)
+            .attr("clip-path", "url(#rectClip)")
+            .attr("fill", () => colorScale(tweet.id_tweet))
+            .attr("stroke", "none")
+            .attr("d", area);
+
+        g.select('.y-axis')
+            .raise()
+            .transition()
+            .duration(600)
+            .attr('opacity', 1)
+            .call(customYAxis);
+
+
+    };
 
     /**
      * setupSections - each section is activated
@@ -262,27 +293,27 @@ let scrollVis = function () {
      *
      */
     function showTitle() {
-      //Hide vis
-      g.select('.line')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        //Hide vis
+        g.select('.line')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
 
-      g.select('.area')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        g.select('.area')
+            .transition()
+            .duration(0)
+            .remove();
 
-      //Show title
-      g.selectAll('.vis-title')
-          .transition()
-          .duration(600)
-          .attr('opacity', 1.0);
+        //Show title
+        g.selectAll('.vis-title')
+            .transition()
+            .duration(600)
+            .attr('opacity', 1.0);
 
-      g.select('.y-axis')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        g.select('.y-axis')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
     }
 
 
