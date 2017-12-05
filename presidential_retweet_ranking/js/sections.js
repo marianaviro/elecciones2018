@@ -7,14 +7,14 @@
 let scrollVis = function() {
 	// constants to define the size
 	// and margins of the vis area.
-	let width = 800;
+	let width = 810;
 	let height = 600;
-	let margin = { top: 0, left: 20, bottom: 40, right: 10 };
+	let margin = { top: 0, left: 30, bottom: 40, right: 10 };
 
 	var dimensions = {
 		height: 600,
-		width: 800,
-		margin_left: 20,
+		width: 810,
+		margin_left: 34,
 		margin_top: 0,
 		margin_right: 10,
 		margin_bottom: 40
@@ -66,7 +66,7 @@ let scrollVis = function() {
 
 	var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ');
 	var first_day = parser('2017-12-02T18:00:00.477Z');
-	var last_day = parser('2017-12-05T14:00:00.514Z');
+	var last_day = parser('2017-12-05T18:00:00.514Z');
 
 	var xScaleTime = d3
 		.scaleTime()
@@ -176,7 +176,7 @@ let scrollVis = function() {
 		g
 			.append('g')
 			.attr('id', 'eje_x')
-			.attr('transform', `translate(${margin_left},${height - 46})`)
+			.attr('transform', `translate(${margin_left - 19},${height - 52})`)
 			.call(xAxis)
 			.attr('opapcity', 0);
 
@@ -260,6 +260,38 @@ let scrollVis = function() {
 			.attr('opacity', 0)
 			.on('mouseover', tip.show)
 			.on('mouseout', tip.hide);
+
+		g
+			.append('text')
+			.attr('id', 'retweets_label')
+			.attr('transform', 'rotate(-90)')
+			.attr('y', 0 - margin_left)
+			.attr('x', 0 - height / 2)
+			.attr('dy', '1em')
+			.style('text-anchor', 'middle')
+			.text('# de Retweets')
+			.attr('opacity', 0);
+
+		g
+			.append('text')
+			.attr('id', 'seguidores_label')
+			.attr('transform', 'rotate(-90)')
+			.attr('y', 0 - margin_left)
+			.attr('x', 0 - height / 2)
+			.attr('dy', '1em')
+			.style('text-anchor', 'middle')
+			.text('# de Seguidores Ganados')
+			.attr('opacity', 0);
+
+		g
+			.append('text')
+			.attr('id', 'tiempo_label')
+			.attr('y', margin_left + width / 2 + 136)
+			.attr('x', height + 150)
+			.attr('dy', '1em')
+			.style('text-anchor', 'middle')
+			.text('Últimos 3 dias')
+			.attr('opacity', 0);
 
 		//Line chart
 
@@ -389,6 +421,30 @@ let scrollVis = function() {
 			.transition()
 			.duration(600)
 			.attr('opacity', 0);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
 	}
 
 	function showBarGraph() {
@@ -417,6 +473,12 @@ let scrollVis = function() {
 			.attr('opacity', 1);
 
 		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		g
 			.selectAll('.line')
 			.transition()
 			.duration(600)
@@ -441,6 +503,18 @@ let scrollVis = function() {
 			.transition()
 			.duration(600)
 			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
 	}
 
 	function showLineChart() {
@@ -449,6 +523,18 @@ let scrollVis = function() {
 			.transition()
 			.duration(0)
 			.attr('opacity', 0);
+
+		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
 
 		g
 			.selectAll('.image')
@@ -471,6 +557,12 @@ let scrollVis = function() {
 			.duration(600)
 			.attr('opacity', 1);
 
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
 		yAxis.scale(yScaleLine);
 		xAxis.scale(xScaleTime);
 
@@ -478,7 +570,8 @@ let scrollVis = function() {
 			.select('#eje_y')
 			.transition()
 			.duration(600)
-			.call(yAxis);
+			.call(yAxis)
+			.attr('opacity', 1);
 
 		g
 			.select('#eje_x')
@@ -918,7 +1011,7 @@ d3
 				if (i === 0 || i === 1 || i === 2 || i === 3) {
 					candidato.growth[i].cambio = 0;
 				} else {
-					candidato.growth[i].cambio = candidato.growth[i].count - candidato.growth[i - 4].count;
+					candidato.growth[i].cambio = candidato.growth[i].count - candidato.growth[i - 2].count;
 					// candidato.growth[i].cambio = candidato.growth[i].cambio < 0 ? 0 : candidato.growth[i].cambio;
 				}
 			}
