@@ -155,7 +155,7 @@ let scrollVis = function() {
 			.attr('class', 'sub-title vis-title')
 			.attr('x', width / 2)
 			.attr('y', height / 5 + height / 10 + 100)
-			.text('En base en más de 100.000 retweets de candidatos');
+			.text('Con base en más de 100.000 retweets de candidatos');
 
 		g.selectAll('.vis-title').attr('opacity', 0);
 
@@ -360,6 +360,11 @@ let scrollVis = function() {
 		activateFunctions[1] = showBarGraph;
 		activateFunctions[2] = showLineChart;
 		activateFunctions[3] = expandLineChart;
+		activateFunctions[4] = highlightClaudia;
+		activateFunctions[5] = highlightRafa;
+		activateFunctions[6] = highlightGerman;
+		activateFunctions[7] = highlightFajardo;
+		activateFunctions[8] = highlightAlejandro;
 
 		// updateFunctions are called while
 		// in a particular section to update
@@ -626,37 +631,21 @@ let scrollVis = function() {
 		// 	.attr('cy', 620)
 		// 	.attr('opacity', 1);
 
-		// g
-		// 	.selectAll('.sergio_fajardo_exit .TimoFARC
-		// 			.petrogustavo
-		// 			.piedadcordoba
-		// 			.JERobledo
-		// 			.ClaraLopezObre
-		// 			.CristoBustos
-		// 			.ClaudiaLopez
-		// 			.sergio_fajardo
-		// 			.DeLaCalleHum
-		// 			.FrankPearl
-		// 			.German_Vargas
-		// 			.IvanDuque
-		// 			.CarlosHolmesTru
-		// 			.PinzonBueno
-		// 			.charoguerra
-		// 			.mluciaramirez
-		// 			.PalomaValenciaL
-		// 			.LuisAlfreRamos
-		// 			.RafaNietoLoaiza
-		// 			.A_OrdonezM	')
-		// 	.transition()
-		// 	.duration(1200)
-		// 	.attr('opacity', 0);
+		g
+			.selectAll(
+				'.TimoFARC_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 0);
+
+		g
+			.selectAll('.petrogustavo_exit')
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
 
 		// Poner line chart:
-		g
-			.selectAll('.line')
-			.transition()
-			.duration(600)
-			.attr('opacity', 1);
 
 		g
 			.select('#tiempo_label')
@@ -682,227 +671,419 @@ let scrollVis = function() {
 			.call(xAxis);
 	}
 
-	function highlightMlucia(graphNodes, edges) {
-		//Reset Y-Axis
-		y.domain([
-			d3.min(graphNodes, d => countFollowers(d, edges)),
-			d3.max(graphNodes, d => countFollowers(d, edges))
-		]);
-
-		yAxis.tickFormat(function(d) {
-			return d !== d3.max(graphNodes, d => countFollowers(d, edges)) ? '\xa0' + d : d + ' seguidores';
-		});
+	function highlightClaudia() {
+		g.selectAll('.vis-title').attr('opacity', 0);
 
 		g
-			.select('.y-axis')
-			.transition()
-			.duration(600)
-			.call(customYAxis);
-
-		g
-			.selectAll('.node')
-			.transition()
-			.duration(600)
-			.attr('transform', d => `translate(${politicalX(d)}, ${followersY(d, edges)})`);
-
-		g
-			.selectAll('.link')
-			.transition()
-			.duration(0)
-			.attr('opacity', 0)
-			.attr('x1', d => politicalX(d.source))
-			.attr('y1', d => followersY(d.source, edges))
-			.attr('x2', d => politicalX(d.target))
-			.attr('y2', d => followersY(d.target, edges));
-
-		// Higlight JERobledo
-		g
-			.selectAll('.node image')
-			.filter(d => d.screenName === 'mluciaramirez')
-			.classed('greyed', false)
-			.transition()
-			.duration(600)
-			.attr('x', -30)
-			.attr('y', -30)
-			.attr('width', 60)
-			.attr('height', 60)
-			.attr('opacity', 1);
-
-		//Highlight JERobledo followers
-		g
-			.selectAll('.node image')
-			.filter(d => isFollower(d, 'mluciaramirez', edges))
-			.classed('greyed', false)
-			.transition()
-			.duration(600)
-			.attr('x', -22)
-			.attr('y', -22)
-			.attr('width', 44)
-			.attr('height', 44)
-			.attr('opacity', 1);
-
-		//Hide others
-		g
-			.selectAll('.node image')
-			.filter(d => !isFollower(d, 'mluciaramirez', edges))
-			.filter(d => d.screenName !== 'mluciaramirez')
-			.classed('greyed', true)
-			.transition()
-			.duration(600)
-			.attr('x', -20)
-			.attr('y', -20)
-			.attr('width', 40)
-			.attr('height', 40)
-			.attr('opacity', 0.7);
-
-		//Highlight JERobledo links
-		g
-			.selectAll('.link')
-			.transition()
-			.duration(600)
-			.attr('opacity', d => (d.target.screenName === 'mluciaramirez' ? 1 : 0));
-
-		g
-			.select('.y-axis')
-			.transition()
-			.duration(600)
-			.attr('opacity', 1);
-	}
-
-	function changeAxisToFollowers(graphNodes, edges) {
-		// Restore all
-		g
-			.selectAll('.node image')
-			.classed('greyed', false)
-			.transition()
-			.duration(0)
-			.attr('x', -20)
-			.attr('y', -20)
-			.attr('width', 40)
-			.attr('height', 40)
-			.attr('opacity', 1);
-
-		//Hide all links
-		g
-			.selectAll('.link')
+			.selectAll('.bar')
 			.transition()
 			.duration(0)
 			.attr('opacity', 0);
 
-		y.domain([
-			d3.min(graphNodes, d => countFollowing(d, edges)),
-			d3.max(graphNodes, d => countFollowing(d, edges))
-		]);
-
-		yAxis.tickFormat(function(d) {
-			return this.parentNode.nextSibling ? '\xa0' + d : d + ' siguiendo';
-		});
+		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
 
 		g
-			.select('.y-axis')
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		// g
+		// 	.selectAll('.image')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('y', 600)
+		// 	.attr('opacity', 1);
+		//
+		// g
+		// 	.selectAll('.circle')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('cy', 620)
+		// 	.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 0);
+
+		g
+			.selectAll('.ClaudiaLopez_exit')
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		// Poner line chart:
+
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
 			.transition()
 			.duration(600)
 			.attr('opacity', 1)
-			.call(customYAxis);
-
-		g
-			.selectAll('.node')
-			.transition()
-			.duration(600)
-			.attr('transform', d => `translate(${politicalX(d)}, ${followingY(d, edges)})`);
-
-		g
-			.selectAll('.link')
-			.transition()
-			.duration(0)
-			.attr('opacity', 0)
-			.attr('x1', d => politicalX(d.source))
-			.attr('y1', d => followingY(d.source, edges))
-			.attr('x2', d => politicalX(d.target))
-			.attr('y2', d => followingY(d.target, edges));
+			.call(xAxis);
 	}
 
-	function highlightVargas() {
-		//Hide links
+	function highlightRafa() {
+		g.selectAll('.vis-title').attr('opacity', 0);
+
 		g
-			.selectAll('.link')
+			.selectAll('.bar')
 			.transition()
 			.duration(0)
 			.attr('opacity', 0);
 
-		//Highlight Vargas
 		g
-			.selectAll('.node image')
-			.filter(d => d.screenName === 'German_Vargas')
-			.classed('greyed', false)
+			.select('#retweets_label')
 			.transition()
 			.duration(600)
-			.attr('x', -30)
-			.attr('y', -30)
-			.attr('width', 60)
-			.attr('height', 60)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		// g
+		// 	.selectAll('.image')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('y', 600)
+		// 	.attr('opacity', 1);
+		//
+		// g
+		// 	.selectAll('.circle')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('cy', 620)
+		// 	.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
 			.attr('opacity', 1);
 
 		g
-			.selectAll('.node image')
-			.filter(d => d.screenName !== 'German_Vargas')
-			.classed('greyed', true)
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 0);
+
+		g
+			.selectAll('.RafaNietoLoaiza_exit')
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		// Poner line chart:
+
+		g
+			.select('#tiempo_label')
 			.transition()
 			.duration(600)
-			.attr('x', -20)
-			.attr('y', -20)
-			.attr('width', 40)
-			.attr('height', 40)
-			.attr('opacity', 0.7);
+			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1)
+			.call(xAxis);
 	}
 
-	function highlightHolmes(edges) {
-		// Higlight CarlosHolmesTru
+	function highlightGerman() {
+		g.selectAll('.vis-title').attr('opacity', 0);
+
 		g
-			.selectAll('.node image')
-			.filter(d => d.screenName === 'CarlosHolmesTru')
-			.classed('greyed', false)
+			.selectAll('.bar')
+			.transition()
+			.duration(0)
+			.attr('opacity', 0);
+
+		g
+			.select('#retweets_label')
 			.transition()
 			.duration(600)
-			.attr('x', -30)
-			.attr('y', -30)
-			.attr('width', 60)
-			.attr('height', 60)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
 			.attr('opacity', 1);
 
-		//Highlight CarlosHolmesTru following
+		// g
+		// 	.selectAll('.image')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('y', 600)
+		// 	.attr('opacity', 1);
+		//
+		// g
+		// 	.selectAll('.circle')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('cy', 620)
+		// 	.attr('opacity', 1);
+
 		g
-			.selectAll('.node image')
-			.filter(d => isFollowedBy(d, 'CarlosHolmesTru', edges))
-			.classed('greyed', false)
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
 			.transition()
-			.duration(600)
-			.attr('x', -22)
-			.attr('y', -22)
-			.attr('width', 44)
-			.attr('height', 44)
+			.duration(1200)
 			.attr('opacity', 1);
 
-		//Hide others
 		g
-			.selectAll('.node image')
-			.filter(d => !isFollowedBy(d, 'CarlosHolmesTru', edges))
-			.filter(d => d.screenName !== 'CarlosHolmesTru')
-			.classed('greyed', true)
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
 			.transition()
-			.duration(600)
-			.attr('x', -20)
-			.attr('y', -20)
-			.attr('width', 40)
-			.attr('height', 40)
-			.attr('opacity', 0.7);
+			.duration(1200)
+			.attr('opacity', 0);
 
-		//Highlight CarlosHolmesTru links
 		g
-			.selectAll('.link')
+			.selectAll('.German_Vargas_exit')
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		// Poner line chart:
+
+		g
+			.select('#tiempo_label')
 			.transition()
 			.duration(600)
-			.attr('opacity', d => (d.source.screenName === 'CarlosHolmesTru' ? 1 : 0));
+			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1)
+			.call(xAxis);
+	}
+
+	function highlightFajardo() {
+		g.selectAll('.vis-title').attr('opacity', 0);
+
+		g
+			.selectAll('.bar')
+			.transition()
+			.duration(0)
+			.attr('opacity', 0);
+
+		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		// g
+		// 	.selectAll('.image')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('y', 600)
+		// 	.attr('opacity', 1);
+		//
+		// g
+		// 	.selectAll('.circle')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('cy', 620)
+		// 	.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 0);
+
+		g
+			.selectAll('.sergio_fajardo_exit')
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		// Poner line chart:
+
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1)
+			.call(xAxis);
+	}
+
+	function highlightAlejandro() {
+		g.selectAll('.vis-title').attr('opacity', 0);
+
+		g
+			.selectAll('.bar')
+			.transition()
+			.duration(0)
+			.attr('opacity', 0);
+
+		g
+			.select('#retweets_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
+
+		g
+			.select('#seguidores_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		// g
+		// 	.selectAll('.image')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('y', 600)
+		// 	.attr('opacity', 1);
+		//
+		// g
+		// 	.selectAll('.circle')
+		// 	.transition()
+		// 	.duration(600)
+		// 	.attr('cy', 620)
+		// 	.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		g
+			.selectAll(
+				'.TimoFARC_exit, .petrogustavo_exit, .piedadcordoba_exit, .JERobledo_exit, .ClaraLopezObre_exit, .CristoBustos_exit, .ClaudiaLopez_exit, .sergio_fajardo_exit, .DeLaCalleHum_exit, .FrankPearl_exit, .German_Vargas_exit, .IvanDuque_exit, .CarlosHolmesTru_exit, .PinzonBueno_exit, .charoguerra_exit, .mluciaramirez_exit, .PalomaValenciaL_exit, .LuisAlfreRamos_exit, .RafaNietoLoaiza_exit, .A_OrdonezM_exit'
+			)
+			.transition()
+			.duration(1200)
+			.attr('opacity', 0);
+
+		g
+			.selectAll('.A_OrdonezM_exit')
+			.transition()
+			.duration(1200)
+			.attr('opacity', 1);
+
+		// Poner line chart:
+
+		g
+			.select('#tiempo_label')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1)
+			.call(xAxis);
 	}
 
 	/**
