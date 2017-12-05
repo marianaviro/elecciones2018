@@ -42,6 +42,7 @@ let scrollVis = function () {
     let updateFunctions = [];
 
     let colorScale = d3.scaleOrdinal().range(['#FF5733', '#C70039', '#900C3F', '#581845']);
+    // let colorScale = d3.scaleOrdinal().range(['#AFFFF9', '#102542', '#DAF7A6', '#581845']);
 
     //Parse date
     var parseDate = d3.timeParse("%Y-%m-%dT%H:%M:%S.%LZ");
@@ -134,6 +135,9 @@ let scrollVis = function () {
           .attr('x', width / 2)
           .attr('y', (height / 15) + (height / 20) + (height / 20) + (height / 15))
           .attr('margin-bottom', '50px')
+          .text("de retweets por segundo.");
+
+      g.append('i')
           .text("de retweets por segundo.");
 
       g.selectAll('.vis-title')
