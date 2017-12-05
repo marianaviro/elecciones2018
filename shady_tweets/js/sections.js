@@ -114,10 +114,10 @@ let scrollVis = function() {
 
         [rawData[1]].concat(rawData[0]).forEach((tweet, index) => {
             d3.select(`#title-${index}`)
-                .html(tweet.id_candidate);
+                .html(`-@${tweet.id_candidate}`);
 
             d3.select(`#tweet-${index}`)
-                .html(tweet.tweet_text);
+                .html(`"${tweet.tweet_text}"`);
         });
 
 		g
