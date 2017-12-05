@@ -2,68 +2,91 @@
 <html>
 
 <head>
-  <title>¿Quién sigue a quién?</title>
-  <meta charset="utf-8" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>¿Quién sigue a quién?</title>
+    <meta charset="utf-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div id="graphic">
-      <div id="sections">
-        <section class="step">
-          <div class="title">¿Quién sigue a quién en la carrera por las presidenciales?</div>
-          Veamos cómo es la red de Twitter entre los candidatos para las presidenciales. Comienze por scrollear
-        </section>
-        <section class="step">
-          <div class="title">¿Qué tantos seguidores tiene cada candidato entre los otros?</div>
-          A la izquierda puede ver una gráfica con cada candidato para las presidenciales donde la altura determina
-          cuántos seguidores tiene cada uno entre los otros. Rodrigo Londoño y Luis Alfredo Ramos son los que menos
-          seguidores tienen....
-        </section>
-        <section class="step">
-          <div class="title">Los menos populares</div>
-          Cada uno cuenta con apenas 3 seguidores. A Rodrigo solamente lo siguen otros candidatos de la izquierda como
-          Gustavo Petro, Piedad Cordoba y Clara López mientras que a Luis Alfredo Ramos solo lo siguen otros candidatos
-          del Centro Democrático como Rafael Nieto, Paloma Valencia y Carlos Holmes.
-        </section>
-        <section class="step">
-          <div class="title">Robledo, arriba por la izquierda</div>
-          Robledo es el que más seguidores acumula entre los otros candidatos logrando llegar a 13 seguidores de todos
-          los espectros políticos. Empata con ...
-        </section>
-        <section class="step">
-          <div class="title">Marta Lucía Ramirez</div>
-          La candidata de derecha también logra llegar a 13 seguidores de todo el espectro político.
-        </section>
-        <section class="step">
-          <div class="title">¿Y quién está más o menos pendiente del resto?</div>
-          Ahora observemos que tantos candidatos sigue cada candidato. Empezemos con el que menos sigue..
-        </section>
-        <section class="step">
-          <div class="title">German Vargas</div>
-          German Vargas no sigue a ningún otro de los candidatos
-        </section>
-        <section class="step">
-          <div class="title">Pero por otro lado..</div>
-          Carlos Holmes sigue hasta un total de 14 candidatos de los 20
-        </section>
-      </div>
-      <div id="vis">
-      </div>
-      <div id="extra-space">
-      </div>
+        <div id="sections">
+            <section class="step">
+                <div class="title">¿Quién sigue a quién en la carrera por las presidenciales?</div>
+                Veamos cómo es la red de Twitter entre los candidatos para las presidenciales. Comienze por scrollear
+            </section>
+            <section class="step">
+                <div class="title">¿Qué tantos seguidores tiene cada candidato entre los otros?</div>
+                A la izquierda puede ver una gráfica con cada candidato para las presidenciales donde la altura
+                determina
+                cuántos seguidores tiene cada uno entre los otros. Rodrigo Londoño y Luis Alfredo Ramos son los que
+                menos
+                seguidores tienen....
+            </section>
+            <section class="step">
+                <div class="title">Los menos populares</div>
+                Cada uno cuenta con apenas 3 seguidores. A Rodrigo solamente lo siguen otros candidatos de la izquierda
+                como
+                Gustavo Petro, Piedad Cordoba y Clara López mientras que a Luis Alfredo Ramos solo lo siguen otros
+                candidatos
+                del Centro Democrático como Rafael Nieto, Paloma Valencia y Carlos Holmes.
+            </section>
+            <section class="step">
+                <div class="title">Robledo, arriba por la izquierda</div>
+                Robledo es el que más seguidores acumula entre los otros candidatos logrando llegar a 13 seguidores de
+                todos
+                los espectros políticos. Empata con ...
+            </section>
+            <section class="step">
+                <div class="title">Marta Lucía Ramirez</div>
+                La candidata de derecha también logra llegar a 13 seguidores de todo el espectro político.
+            </section>
+            <section class="step">
+                <div class="title">¿Y quién está más o menos pendiente del resto?</div>
+                Ahora observemos que tantos candidatos sigue cada candidato. Empezemos con el que menos sigue..
+            </section>
+            <section class="step">
+                <div class="title">German Vargas</div>
+                German Vargas no sigue a ningún otro de los candidatos
+            </section>
+            <section class="step">
+                <div class="title">Pero por otro lado..</div>
+                Carlos Holmes sigue hasta un total de 14 candidatos de los 20
+            </section>
+            <section class="step">
+                <div class="title">Es tu turno de explorar !</div>
+                Navega encima de un candidato para ver sus seguidores o a quién sigue
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active" id="followers_button">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Seguidores
+                    </label>
+                    <label class="btn btn-primary" id="following_button" >
+                        <input type="radio" name="options" autocomplete="off"> A quién sigue
+                    </label>
+                </div>
+            </section>
+
+        </div>
+        <div id="vis">
+        </div>
+        <div id="extra-space">
+        </div>
     </div>
-  </div>
+</div>
 
-
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
-  <script src="js/scroller.js"></script>
-  <script src="js/sections.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-selection-multi.v1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+<script src="js/scroller.js"></script>
+<script src="js/sections.js"></script>
 </body>
 
 </html>

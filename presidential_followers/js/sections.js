@@ -96,6 +96,24 @@ let scrollVis = function () {
                   0 1 0 0 0
                   0 1 0 1 0 `);
 
+            svg.select('defs')
+                .append('marker')
+                .attrs({'id':'arrowhead',
+                    'viewBox':'-0 -5 10 10',
+                    'refX':30,
+                    'refY':0,
+                    'orient':'auto',
+                    'markerWidth':13,
+                    'markerHeight':13,
+                    'xoverflow':'visible'})
+                .append('svg:polyline')
+                .attr('points', '0,-2 4,0 0,2')
+                .attr('stroke', 'black')
+                .attr('stroke-linejoin', 'round')
+                .attr('stroke-linecap', 'round')
+                .attr('fill', 'none')
+                .attr('stroke-width', 1);
+
             svg.attr('width', width + margin.left + margin.right);
             svg.attr('height', height + margin.top + margin.bottom);
 
@@ -169,6 +187,7 @@ let scrollVis = function () {
             .style('stroke', 'black')
             .attr('stroke-width', 1)
             .attr('opacity', 0)
+            .attr('marker-end', 'url(#arrowhead)')
             .attr('x1', d => politicalX(d.source))
             .attr('y1', d => followersY(d.source, edges))
             .attr('x2', d => politicalX(d.target))
@@ -217,7 +236,8 @@ let scrollVis = function () {
         activateFunctions[4] = highlightMlucia.bind(this, graphNodes, edges);
         activateFunctions[5] = changeAxisToFollowers.bind(this, graphNodes, edges);
         activateFunctions[6] = highlightVargas;
-        activateFunctions[7] = highlightHolmes.bind(this, edges);
+        activateFunctions[7] = highlightHolmes.bind(this, graphNodes, edges);
+        activateFunctions[8] = explore.bind(this, graphNodes, edges);
 
         // updateFunctions are called while
         // in a particular section to update
@@ -592,7 +612,38 @@ let scrollVis = function () {
 
     }
 
-    function highlightHolmes(edges) {
+    function highlightHolmes(graphNodes, edges) {
+
+        //Reset axis
+        y.domain([d3.min(graphNodes, d => countFollowing(d, edges)), d3.max(graphNodes, d => countFollowing(d, edges))]);
+
+        yAxis.tickFormat(function (d) {
+            return this.parentNode.nextSibling
+                ? "\xa0" + d
+                : d + " siguiendo";
+        });
+
+        g.select('.y-axis')
+            .transition()
+            .duration(600)
+            .attr('opacity', 1)
+            .call(customYAxis);
+
+        g.selectAll('.node')
+            .transition()
+            .duration(600)
+            .attr('transform', d => `translate(${politicalX(d)}, ${followingY(d, edges)})`);
+
+        g.selectAll('.link')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0)
+            .attr('x1', d => politicalX(d.source))
+            .attr('y1', d => followingY(d.source, edges))
+            .attr('x2', d => politicalX(d.target))
+            .attr('y2', d => followingY(d.target, edges));
+
+
         // Higlight CarlosHolmesTru
         g.selectAll('.node image')
             .filter(d => d.screenName === 'CarlosHolmesTru')
@@ -635,6 +686,68 @@ let scrollVis = function () {
             .transition()
             .duration(600)
             .attr('opacity', d => d.source.screenName === 'CarlosHolmesTru' ? 1 : 0);
+
+        g.selectAll('.node')
+            .on('mouseover', null)
+            .on('mouseout', null);
+    }
+
+    function explore(graphNodes, edges) {
+
+        d3.select('#following_button')
+            .on('click', () => onClickFollowing(graphNodes, edges));
+
+        d3.select('#followers_button')
+            .on('click', () => onClickFollowers(graphNodes, edges));
+
+        //Reset all images
+        g.selectAll('.node image')
+            .classed('greyed', false)
+            .transition()
+            .duration(0)
+            .attr('x', -20)
+            .attr('y', -20)
+            .attr('width', 40)
+            .attr('height', 40)
+            .attr('opacity', 1);
+
+        //Hide all links
+        g.selectAll('.link')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
+
+        //Reset Y-Axis
+        y.domain([d3.min(graphNodes, d => countFollowers(d, edges)), d3.max(graphNodes, d => countFollowers(d, edges))]);
+
+        yAxis.tickFormat(function (d) {
+            return d !== d3.max(graphNodes, d => countFollowers(d, edges))
+                ? "\xa0" + d
+                : d + " seguidores";
+        });
+
+        g.select('.y-axis')
+            .transition()
+            .duration(600)
+            .attr('opacity', 1)
+            .call(customYAxis);
+
+        g.selectAll('.node')
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowersGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
+            .transition()
+            .duration(600)
+            .attr('transform', d => `translate(${politicalX(d)}, ${followersY(d, edges)})`);
+
+        g.selectAll('.link')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0)
+            .attr('x1', d => politicalX(d.source))
+            .attr('y1', d => followersY(d.source, edges))
+            .attr('x2', d => politicalX(d.target))
+            .attr('y2', d => followersY(d.target, edges));
+
     }
 
 
@@ -698,6 +811,201 @@ let scrollVis = function () {
      *
      */
 
+    function onClickFollowers(graphNodes, edges) {
+        //Reset all images
+        g.selectAll('.node image')
+            .classed('greyed', false)
+            .transition()
+            .duration(0)
+            .attr('x', -20)
+            .attr('y', -20)
+            .attr('width', 40)
+            .attr('height', 40)
+            .attr('opacity', 1);
+
+        //Hide all links
+        g.selectAll('.link')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
+
+        //Reset Y-Axis
+        y.domain([d3.min(graphNodes, d => countFollowers(d, edges)), d3.max(graphNodes, d => countFollowers(d, edges))]);
+
+        yAxis.tickFormat(function (d) {
+            return d !== d3.max(graphNodes, d => countFollowers(d, edges))
+                ? "\xa0" + d
+                : d + " seguidores";
+        });
+
+        g.select('.y-axis')
+            .transition()
+            .duration(600)
+            .attr('opacity', 1)
+            .call(customYAxis);
+
+        g.selectAll('.node')
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowersGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
+            .transition()
+            .duration(600)
+            .attr('transform', d => `translate(${politicalX(d)}, ${followersY(d, edges)})`);
+
+        g.selectAll('.link')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0)
+            .attr('x1', d => politicalX(d.source))
+            .attr('y1', d => followersY(d.source, edges))
+            .attr('x2', d => politicalX(d.target))
+            .attr('y2', d => followersY(d.target, edges));
+    }
+
+    function onClickFollowing(graphNodes, edges) {
+        //Reset axis
+        console.log('hey');
+        y.domain([d3.min(graphNodes, d => countFollowing(d, edges)), d3.max(graphNodes, d => countFollowing(d, edges))]);
+
+        yAxis.tickFormat(function (d) {
+            return this.parentNode.nextSibling
+                ? "\xa0" + d
+                : d + " siguiendo";
+        });
+
+        g.select('.y-axis')
+            .transition()
+            .duration(600)
+            .attr('opacity', 1)
+            .call(customYAxis);
+
+        g.selectAll('.node')
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowingGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
+            .transition()
+            .duration(600)
+            .attr('transform', d => `translate(${politicalX(d)}, ${followingY(d, edges)})`);
+
+        g.selectAll('.link')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0)
+            .attr('x1', d => politicalX(d.source))
+            .attr('y1', d => followingY(d.source, edges))
+            .attr('x2', d => politicalX(d.target))
+            .attr('y2', d => followingY(d.target, edges));
+    }
+
+    function onMouseOverFollowersGraph(d, i, nodes, edges) {
+        // Higlight this
+        d3.select(nodes[i])
+            .select('image')
+            .classed('greyed', false)
+            .transition()
+            .duration(200)
+            .attr('x', -30)
+            .attr('y', -30)
+            .attr('width', 60)
+            .attr('height', 60)
+            .attr('opacity', 1);
+
+        //Highlight followers
+        g.selectAll('.node image')
+            .filter(f => isFollower(f, d.screenName, edges))
+            .classed('greyed', false)
+            .transition()
+            .duration(200)
+            .attr('x', -22)
+            .attr('y', -22)
+            .attr('width', 44)
+            .attr('height', 44)
+            .attr('opacity', 1);
+
+        //Hide others
+        g.selectAll('.node image')
+            .filter(f => !isFollower(f, d.screenName, edges))
+            .filter(f => d.screenName !== f.screenName)
+            .classed('greyed', true)
+            .transition()
+            .duration(200)
+            .attr('x', -20)
+            .attr('y', -20)
+            .attr('width', 40)
+            .attr('height', 40)
+            .attr('opacity', 0.7);
+
+        //Highlight JERobledo links
+        g.selectAll('.link')
+            .transition()
+            .duration(200)
+            .attr('opacity', l => l.target.screenName === d.screenName ? 1 : 0);
+
+    }
+
+    function onMouseOverFollowingGraph(d, i, nodes, edges) {
+        // Higlight this
+        d3.select(nodes[i])
+            .select('image')
+            .classed('greyed', false)
+            .transition()
+            .duration(200)
+            .attr('x', -30)
+            .attr('y', -30)
+            .attr('width', 60)
+            .attr('height', 60)
+            .attr('opacity', 1);
+
+        //Highlight followers
+        g.selectAll('.node image')
+            .filter(f => isFollowedBy(f, d.screenName, edges))
+            .classed('greyed', false)
+            .transition()
+            .duration(200)
+            .attr('x', -22)
+            .attr('y', -22)
+            .attr('width', 44)
+            .attr('height', 44)
+            .attr('opacity', 1);
+
+        //Hide others
+        g.selectAll('.node image')
+            .filter(f => !isFollowedBy(f, d.screenName, edges))
+            .filter(f => d.screenName !== f.screenName)
+            .classed('greyed', true)
+            .transition()
+            .duration(200)
+            .attr('x', -20)
+            .attr('y', -20)
+            .attr('width', 40)
+            .attr('height', 40)
+            .attr('opacity', 0.7);
+
+        //Highlight JERobledo links
+        g.selectAll('.link')
+            .transition()
+            .duration(200)
+            .attr('opacity', l => l.source.screenName === d.screenName ? 1 : 0);
+
+    }
+
+    function onMouseOutFollowersGraph(d, i, nodes) {
+        //Hide all links
+        g.selectAll('.link')
+            .transition()
+            .duration(200)
+            .attr('opacity', 0);
+
+        //Reset Images
+        g.selectAll('.node image')
+            .classed('greyed', false)
+            .transition()
+            .duration(200)
+            .attr('x', -20)
+            .attr('y', -20)
+            .attr('width', 40)
+            .attr('height', 40)
+            .attr('opacity', 1);
+
+    }
 
     /**
      * activate -
