@@ -65,8 +65,8 @@ let scrollVis = function() {
 		.range([dimensions.margin_left + 30, dimensions.width - dimensions.margin_right]);
 
 	var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ');
-	var first_day = parser('2017-12-02T14:00:00.477Z');
-	var last_day = parser('2017-12-04T10:00:00.514Z');
+	var first_day = parser('2017-12-02T18:00:00.477Z');
+	var last_day = parser('2017-12-05T14:00:00.514Z');
 
 	var xScaleTime = d3
 		.scaleTime()
@@ -79,6 +79,7 @@ let scrollVis = function() {
 		.range([height - margin_bottom, 0]);
 
 	var yAxis = d3.axisLeft().scale(yScale);
+	var xAxis = d3.axisBottom().scale(xScaleTime);
 
 	/**
 	 * chart
@@ -172,6 +173,13 @@ let scrollVis = function() {
 			.call(yAxis)
 			.attr('opacity', 0);
 
+		g
+			.append('g')
+			.attr('id', 'eje_x')
+			.attr('transform', `translate(${margin_left},${height - 46})`)
+			.call(xAxis)
+			.attr('opapcity', 0);
+
 		let bars = g
 			.append('g')
 			.classed('bars', true)
@@ -207,6 +215,14 @@ let scrollVis = function() {
 			.append('svg:image')
 			.classed('image', true);
 
+		// Tip
+		var tip = d3
+			.tip()
+			.attr('class', 'd3-tip arriba')
+			.offset([-10, 0])
+			.html(d => `<strong>${d.name} - ${d.twitter_handle} - ${d.cuenta_retweets} retweets</strong>`);
+		g.call(tip);
+
 		images = images
 			.merge(imagesE)
 			.attr('xlink:href', d => d.photo_url)
@@ -216,9 +232,9 @@ let scrollVis = function() {
 			})
 			.attr('width', 40)
 			.attr('height', 40)
-			.attr('opacity', 0);
-		// .on('mouseover', tip.show)
-		// .on('mouseout', tip.hide);
+			.attr('opacity', 0)
+			.on('mouseover', tip.show)
+			.on('mouseout', tip.hide);
 
 		let circles = g
 			.append('g')
@@ -240,11 +256,10 @@ let scrollVis = function() {
 			.attr('r', 18)
 			.attr('fill', 'transparent')
 			.attr('stroke', d => colors(d.twitter_handle))
-			.attr('stroke-width', 3)
-			.attr('opacity', 0);
-
-		// .on('mouseover', tip.show)
-		// .on('mouseout', tip.hide);
+			.attr('stroke-width', 3.4)
+			.attr('opacity', 0)
+			.on('mouseover', tip.show)
+			.on('mouseout', tip.hide);
 
 		//Line chart
 
@@ -258,7 +273,16 @@ let scrollVis = function() {
 			return max;
 		});
 
-		yScaleLine.domain([0, yMaxLine]);
+		var min = d3.min(datos, candidato => {
+			var min = 0;
+			candidato.growth.map(hora_seguidores => {
+				if (hora_seguidores.cambio < min) {
+					min = hora_seguidores.cambio;
+				}
+			});
+			return min;
+		});
+		yScaleLine.domain([min, yMaxLine]);
 
 		let lines = g.append('g').classed('lines', true);
 
@@ -269,16 +293,6 @@ let scrollVis = function() {
 					return xScaleTime(d.date);
 				})
 				.y(d => yScaleLine(d.cambio));
-
-			// // Tip
-			// var tip = d3
-			// 	.tip()
-			// 	.attr('class', 'd3-tip')
-			// 	.offset([50, 0])
-			// 	.html(d => {
-			// 		return `<strong>${d[0].id_candidate}</strong>`;
-			// 	});
-			// svg.call(tip);
 
 			lines
 				.append('path')
@@ -369,6 +383,12 @@ let scrollVis = function() {
 			.transition()
 			.duration(600)
 			.attr('opacity', 0);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
 	}
 
 	function showBarGraph() {
@@ -401,6 +421,26 @@ let scrollVis = function() {
 			.transition()
 			.duration(600)
 			.attr('opacity', 0);
+
+		yAxis.scale(yScale);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 0);
 	}
 
 	function showLineChart() {
@@ -430,6 +470,22 @@ let scrollVis = function() {
 			.transition()
 			.duration(600)
 			.attr('opacity', 1);
+
+		yAxis.scale(yScaleLine);
+		xAxis.scale(xScaleTime);
+
+		g
+			.select('#eje_y')
+			.transition()
+			.duration(600)
+			.call(yAxis);
+
+		g
+			.select('#eje_x')
+			.transition()
+			.duration(600)
+			.attr('opacity', 1)
+			.call(xAxis);
 	}
 
 	function highlightRobledo(edges) {
@@ -848,7 +904,8 @@ function display(data) {
 	});
 }
 
-const ROOT_URL = 'http://localhost:6001';
+// const ROOT_URL = 'http://localhost:6001';
+const ROOT_URL = 'http://api_twitter.fabioespinosa.com';
 
 d3
 	.queue()
@@ -865,6 +922,7 @@ d3
 					// candidato.growth[i].cambio = candidato.growth[i].cambio < 0 ? 0 : candidato.growth[i].cambio;
 				}
 			}
+			candidato.growth = candidato.growth.slice(4);
 			candidato.growth.forEach(fecha_seguidores => {
 				fecha_seguidores.date = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')(fecha_seguidores.date);
 			});
