@@ -66,10 +66,11 @@ let scrollVis = function () {
         });
 
     const yAxis = d3.axisRight(y)
-        .tickSize(width)
-        .tickFormat(function (d) {
-            let sub = y(d) - y.range()[1];
-            return sub > 10
+        .tickSize(width);
+    yAxis
+        //.tickArguments(yAxis.tickSize())
+        .tickFormat(function (d, i, nodes) {
+            return i < nodes.length - 1
                 ? "\xa0" + d
                 : d + " total retweets";
         });
