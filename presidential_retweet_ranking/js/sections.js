@@ -998,7 +998,7 @@ function display(data) {
 }
 
 // const ROOT_URL = 'http://localhost:6001';
-const ROOT_URL = 'http://api_twitter.fabioespinosa.com';
+const ROOT_URL = 'https://api_twitter.fabioespinosa.com';
 
 d3
 	.queue()
