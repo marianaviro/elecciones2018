@@ -69,9 +69,9 @@ let scrollVis = function () {
         .tickSize(width)
         .tickFormat(function (d) {
             let sub = y(d) - y.range()[1];
-            return sub > 6.53
+            return sub > 10
                 ? "\xa0" + d
-                : d + " seguidores";
+                : d + " total retweets";
         });
 
     /**
@@ -205,14 +205,6 @@ let scrollVis = function () {
             })
             .y0(height - 400)
             .y1(function (d) {
-                return y(d.value);
-            });
-
-        var line = d3.line()
-            .x(function (d) {
-                return x(new Date(d.key));
-            })
-            .y(function (d) {
                 return y(d.value);
             });
 
@@ -455,7 +447,7 @@ var url = "http://api_twitter.fabioespinosa.com/shady_tweets";
 
 d3.queue()
     .defer(d3.json, url)
-    .defer(d3.json, "http://api_twitter.fabioespinosa.com/tweet/937506094997491713")
+    .defer(d3.json, "http://api_twitter.fabioespinosa.com/tweet/936590455856357376")
     .awaitAll((error, results) => {
         display(results);
     });
