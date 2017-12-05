@@ -1,0 +1,170 @@
+html {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 100;
+}
+
+.container {
+  width: 890px;
+  margin-left: 100px;
+}
+
+#graphic {
+  padding-top: 0px;
+}
+
+
+#sections {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  top: 0px;
+  z-index: 90;
+  padding-bottom: 300px;
+  padding-top: 200px;
+  margin-right: 50px;
+}
+
+.step {
+  margin-bottom: 300px;
+  /*margin-top: 200px;*/
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
+}
+
+#sections .title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #262626;
+  line-height: 1.2em;
+}
+
+#extra-space {
+  height: 300px;
+}
+
+#vis {
+  display: inline-block;
+  position: fixed;
+  padding-top: 150px;
+  padding-left: 40px;
+  padding-right: 20px;
+  top: 0px;
+  z-index: 1;
+  margin-left: 0;
+  /* height: 600px; */
+  /* width: 600px; */
+  /* background-color: #ddd; */
+}
+
+#vis .title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  text-anchor: middle;
+  letter-spacing: 4px;
+}
+
+#vis .sub-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  text-anchor: middle;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #666;
+  shape-rendering: crispEdges;
+}
+
+.highlight {
+  fill: #008080;
+  font-weight: bold;
+}
+
+.cough-arrow {
+  stroke: #000;
+  stroke-width: 4px;
+
+}
+
+.nodes image {
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+}
+
+.invisible {
+  cursor: auto;
+}
+
+.label {
+  font-family: 'Raleway', sans-serif;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 110px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  background: #2F2F2F;
+  color: #FFF;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.greyed {
+  filter: url("#greyscale");
+  filter: greyscale(100%);
+}
+
+.tree-link {
+  fill: none;
+  /* stroke: #555; */
+  stroke-opacity: 0.4;
+  stroke-width: 0px;
+}
+
+.artists-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.artists-name-hover {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.legendlabel {
+  font-family: 'Raleway', sans-serif;
+  font-size: 8px;
+  text-transform: capitalize;
+}
+
+.legend-hover {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.legendlabel:hover{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+path line {
+  fill: none;
+  stroke: #000;
+}
+
+path{
+  border: none !important;
+  stroke: none;
+}
