@@ -7,7 +7,7 @@
 let scrollVis = function () {
     // constants to define the size
     // and margins of the vis area.
-    let width = 800;
+    let width = 710;
     let height = 500;
     let margin = {top: 0, left: 20, bottom: 40, right: 10};
     let mainNodeR = 27;
@@ -235,7 +235,7 @@ let scrollVis = function () {
         // activateFunctions are called each
         // time the active section changes
         activateFunctions[0] = showTitle;
-        activateFunctions[1] = showGraph;
+        activateFunctions[1] = showGraph.bind(this, edges);
         activateFunctions[2] = highlightTimoAndRamos.bind(this, edges);
         activateFunctions[3] = highlightRobledo.bind(this, edges);
         activateFunctions[4] = highlightMlucia.bind(this, graphNodes, edges);
@@ -300,6 +300,8 @@ let scrollVis = function () {
             .attr('opacity', 0);
 
         g.selectAll('.node')
+            .on('mouseover', null)
+            .on('mouseout', null)
             .select('image')
             .transition(0)
             .duration(600)
@@ -313,7 +315,9 @@ let scrollVis = function () {
 
     }
 
-    function showGraph() {
+    function showGraph(edges) {
+
+        exploring = true;
 
         //Hide tooltip
         tooltipDiv.transition()
@@ -334,8 +338,8 @@ let scrollVis = function () {
 
         //Show nodes
         g.selectAll('.node')
-            .on('mouseover', null)
-            .on('mouseout', null)
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowingGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
             .select('image')
             .classed('greyed', false)
             .transition()
@@ -354,6 +358,8 @@ let scrollVis = function () {
     }
 
     function highlightTimoAndRamos(edges) {
+
+        exploring = false;
 
         //Hide tooltip
         tooltipDiv.transition()
@@ -438,6 +444,8 @@ let scrollVis = function () {
 
     function highlightMlucia(graphNodes, edges) {
 
+        exploring = false;
+
         //Hide tooltip
         tooltipDiv.transition()
             .duration(0)
@@ -482,6 +490,8 @@ let scrollVis = function () {
 
     function changeAxisToFollowers(graphNodes, edges) {
 
+        exploring = true;
+
         //Hide tooltip
         tooltipDiv.transition()
             .duration(0)
@@ -519,6 +529,8 @@ let scrollVis = function () {
             .call(customYAxis);
 
         g.selectAll('.node')
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowingGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
             .transition()
             .duration(600)
             .attr('transform', d => `translate(${politicalX(d)}, ${followingY(d, edges)})`);
@@ -534,6 +546,7 @@ let scrollVis = function () {
     }
 
     function highlightVargas() {
+        exploring = false;
         //Hide tooltip
         tooltipDiv.transition()
             .duration(0)
