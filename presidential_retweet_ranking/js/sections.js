@@ -406,55 +406,55 @@ let scrollVis = function() {
 		g
 			.selectAll('.bar')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.selectAll('.image')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.selectAll('.circle')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.selectAll('.line')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.select('#eje_y')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.select('#eje_x')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.select('#retweets_label')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.select('#seguidores_label')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 
 		g
 			.select('#tiempo_label')
 			.transition()
-			.duration(600)
+			.duration(0)
 			.attr('opacity', 0);
 	}
 
