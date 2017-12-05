@@ -66,10 +66,11 @@ let scrollVis = function () {
         });
 
     const yAxis = d3.axisRight(y)
-        .tickSize(width)
-        .tickFormat(function (d) {
-            let sub = y(d) - y.range()[1];
-            return sub > 10
+        .tickSize(width);
+    yAxis
+        //.tickArguments(yAxis.tickSize())
+        .tickFormat(function (d, i, nodes) {
+            return i < nodes.length - 1
                 ? "\xa0" + d
                 : d + " total retweets";
         });
@@ -182,7 +183,6 @@ let scrollVis = function () {
             //.attr("width", width);
             .attr("height", width);
 
-        console.log(tweet);
         var retweets = tweet.Retweets;
 
         var count = 0;
@@ -191,13 +191,15 @@ let scrollVis = function () {
             .key(function (d) {
                 return parseDate(d.created_at);
             })
-            .rollup(function (d) {
-                count += d.length;
-                return count;
-            })
+            .sortKeys((a, b) => new Date(a) - new Date(b))
             .entries(retweets);
 
-        nested = nested.filter(d => d.value <= 200);
+        nested = nested.map(d => {
+            count += d.values.length;
+            return {key: d.key, value: count};
+        }).filter(d => d.value <= 200);
+
+        console.log(nested);
 
         var area = d3.area()
             .x(function (d) {

@@ -7,9 +7,14 @@
 let scrollVis = function () {
     // constants to define the size
     // and margins of the vis area.
-    let width = 800;
-    let height = 600;
+    let width = 710;
+    let height = 500;
     let margin = {top: 0, left: 20, bottom: 40, right: 10};
+    let mainNodeR = 27;
+    let neighNodeR = 20;
+    let nodeR = 15;
+
+    let exploring = false;
 
     // Keep track of which visualization
     // we are on and which was the last
@@ -210,10 +215,10 @@ let scrollVis = function () {
             .append('image')
             .attr('opacity', 0)
             .attr('xlink:href', d => d.img.replace('normal', 'bigger'))
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40);
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2);
 
         setupSections(graphNodes, edges);
 
@@ -230,7 +235,7 @@ let scrollVis = function () {
         // activateFunctions are called each
         // time the active section changes
         activateFunctions[0] = showTitle;
-        activateFunctions[1] = showGraph;
+        activateFunctions[1] = showGraph.bind(this, edges);
         activateFunctions[2] = highlightTimoAndRamos.bind(this, edges);
         activateFunctions[3] = highlightRobledo.bind(this, edges);
         activateFunctions[4] = highlightMlucia.bind(this, graphNodes, edges);
@@ -294,10 +299,10 @@ let scrollVis = function () {
             .duration(0)
             .attr('opacity', 0);
 
-        g.selectAll('.node image')
+        g.selectAll('.node')
             .on('mouseover', null)
             .on('mouseout', null)
-            .on('click', null)
+            .select('image')
             .transition(0)
             .duration(600)
             .attr('opacity', 0);
@@ -310,8 +315,9 @@ let scrollVis = function () {
 
     }
 
-    function showGraph() {
+    function showGraph(edges) {
 
+        exploring = true;
 
         //Hide tooltip
         tooltipDiv.transition()
@@ -331,15 +337,18 @@ let scrollVis = function () {
             .attr('opacity', 0);
 
         //Show nodes
-        g.selectAll('.node image')
+        g.selectAll('.node')
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowingGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
+            .select('image')
             .classed('greyed', false)
             .transition()
             .duration(600)
             .attr('opacity', 1)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40);
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2);
 
         //Show axis
         g.select('.y-axis')
@@ -350,41 +359,57 @@ let scrollVis = function () {
 
     function highlightTimoAndRamos(edges) {
 
+        exploring = false;
+
+        //Hide tooltip
+        tooltipDiv.transition()
+            .duration(0)
+            .style('opacity', 0);
+
         // Higlight TimoFARC
-        g.selectAll('.node image')
+        g.selectAll('.node')
             .filter(d => d.screenName === 'TimoFARC' || d.screenName === 'LuisAlfreRamos')
+            .on('mouseover', (d) => onMouseOverPresenting(d))
+            .on('mouseout', () => onMouseOutPresenting())
+            .select('image')
             .classed('greyed', false)
             .transition()
             .duration(600)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
+            .attr('x', 0 - mainNodeR)
+            .attr('y', 0 - mainNodeR)
+            .attr('width', mainNodeR * 2)
+            .attr('height', mainNodeR * 2)
             .attr('opacity', 1);
 
         //Highlight TimoFARC followers
-        g.selectAll('.node image')
+        g.selectAll('.node')
             .filter(d => isFollower(d, 'TimoFARC', edges) || isFollower(d, 'LuisAlfreRamos', edges))
+            .on('mouseover', (d) => onMouseOverPresenting(d))
+            .on('mouseout', () => onMouseOutPresenting())
+            .select('image')
             .classed('greyed', false)
             .transition()
             .duration(600)
-            .attr('x', -22)
-            .attr('y', -22)
-            .attr('width', 44)
-            .attr('height', 44)
+            .attr('x', 0 - neighNodeR)
+            .attr('y', 0 - neighNodeR)
+            .attr('width', neighNodeR * 2)
+            .attr('height', neighNodeR * 2)
             .attr('opacity', 1);
 
         //Hide others
-        g.selectAll('.node image')
+        g.selectAll('.node')
             .filter(d => !isFollower(d, 'TimoFARC', edges) && !isFollower(d, 'LuisAlfreRamos', edges))
             .filter(d => d.screenName !== 'TimoFARC' && d.screenName !== 'LuisAlfreRamos')
+            .on('mouseover', null)
+            .on('mouseout', null)
+            .select('image')
             .classed('greyed', true)
             .transition()
             .duration(600)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2)
             .attr('opacity', 0.7);
 
         //Highlight TimoFARC links
@@ -402,48 +427,13 @@ let scrollVis = function () {
 
     function highlightRobledo(edges) {
 
+        //Hide tooltip
+        tooltipDiv.transition()
+            .duration(0)
+            .style('opacity', 0);
+
         // Higlight JERobledo
-        g.selectAll('.node image')
-            .filter(d => d.screenName === 'JERobledo')
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
-            .attr('opacity', 1);
-
-        //Highlight JERobledo followers
-        g.selectAll('.node image')
-            .filter(d => isFollower(d, 'JERobledo', edges))
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -22)
-            .attr('y', -22)
-            .attr('width', 44)
-            .attr('height', 44)
-            .attr('opacity', 1);
-
-        //Hide others
-        g.selectAll('.node image')
-            .filter(d => !isFollower(d, 'JERobledo', edges))
-            .filter(d => d.screenName !== 'JERobledo')
-            .classed('greyed', true)
-            .transition()
-            .duration(600)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 0.7);
-
-        //Highlight JERobledo links
-        g.selectAll('.link')
-            .transition()
-            .duration(600)
-            .attr('opacity', d => d.target.screenName === 'JERobledo' ? 1 : 0);
+        higlightNodeAndFollowers('JERobledo', edges);
 
         g.select('.y-axis')
             .transition()
@@ -453,6 +443,13 @@ let scrollVis = function () {
     }
 
     function highlightMlucia(graphNodes, edges) {
+
+        exploring = false;
+
+        //Hide tooltip
+        tooltipDiv.transition()
+            .duration(0)
+            .style('opacity', 0);
 
         //Reset Y-Axis
         y.domain([d3.min(graphNodes, d => countFollowers(d, edges)), d3.max(graphNodes, d => countFollowers(d, edges))]);
@@ -468,6 +465,7 @@ let scrollVis = function () {
             .duration(600)
             .call(customYAxis);
 
+        //Replace nodes and edges
         g.selectAll('.node')
             .transition()
             .duration(600)
@@ -482,48 +480,7 @@ let scrollVis = function () {
             .attr('x2', d => politicalX(d.target))
             .attr('y2', d => followersY(d.target, edges));
 
-        // Higlight JERobledo
-        g.selectAll('.node image')
-            .filter(d => d.screenName === 'mluciaramirez')
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
-            .attr('opacity', 1);
-
-        //Highlight JERobledo followers
-        g.selectAll('.node image')
-            .filter(d => isFollower(d, 'mluciaramirez', edges))
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -22)
-            .attr('y', -22)
-            .attr('width', 44)
-            .attr('height', 44)
-            .attr('opacity', 1);
-
-        //Hide others
-        g.selectAll('.node image')
-            .filter(d => !isFollower(d, 'mluciaramirez', edges))
-            .filter(d => d.screenName !== 'mluciaramirez')
-            .classed('greyed', true)
-            .transition()
-            .duration(600)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 0.7);
-
-        //Highlight JERobledo links
-        g.selectAll('.link')
-            .transition()
-            .duration(600)
-            .attr('opacity', d => d.target.screenName === 'mluciaramirez' ? 1 : 0);
+        higlightNodeAndFollowers('mluciaramirez', edges);
 
         g.select('.y-axis')
             .transition()
@@ -533,16 +490,23 @@ let scrollVis = function () {
 
     function changeAxisToFollowers(graphNodes, edges) {
 
+        exploring = true;
+
+        //Hide tooltip
+        tooltipDiv.transition()
+            .duration(0)
+            .style('opacity', 0);
+
         // Restore all
         g.selectAll('.node image')
             .classed('greyed', false)
             .transition()
             .duration(0)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 1);
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2)
+            .attr('opacity', nodeR * 2);
 
         //Hide all links
         g.selectAll('.link')
@@ -565,6 +529,8 @@ let scrollVis = function () {
             .call(customYAxis);
 
         g.selectAll('.node')
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowingGraph(d, i, nodes, edges))
+            .on('mouseout', onMouseOutFollowersGraph)
             .transition()
             .duration(600)
             .attr('transform', d => `translate(${politicalX(d)}, ${followingY(d, edges)})`);
@@ -580,39 +546,23 @@ let scrollVis = function () {
     }
 
     function highlightVargas() {
-
-        //Hide links
-        g.selectAll('.link')
-            .transition()
+        exploring = false;
+        //Hide tooltip
+        tooltipDiv.transition()
             .duration(0)
-            .attr('opacity', 0);
+            .style('opacity', 0);
 
-        //Highlight Vargas
-        g.selectAll('.node image')
-            .filter(d => d.screenName === 'German_Vargas')
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
-            .attr('opacity', 1);
-
-        g.selectAll('.node image')
-            .filter(d => d.screenName !== 'German_Vargas')
-            .classed('greyed', true)
-            .transition()
-            .duration(600)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 0.7);
-
+        highlightNodeAndFollowing('German_Vargas', []);
     }
 
     function highlightHolmes(graphNodes, edges) {
+
+        exploring = false;
+
+        //Hide tooltip
+        tooltipDiv.transition()
+            .duration(0)
+            .style('opacity', 0);
 
         //Reset axis
         y.domain([d3.min(graphNodes, d => countFollowing(d, edges)), d3.max(graphNodes, d => countFollowing(d, edges))]);
@@ -629,6 +579,7 @@ let scrollVis = function () {
             .attr('opacity', 1)
             .call(customYAxis);
 
+        //Move nodes and links
         g.selectAll('.node')
             .transition()
             .duration(600)
@@ -643,56 +594,17 @@ let scrollVis = function () {
             .attr('x2', d => politicalX(d.target))
             .attr('y2', d => followingY(d.target, edges));
 
-
-        // Higlight CarlosHolmesTru
-        g.selectAll('.node image')
-            .filter(d => d.screenName === 'CarlosHolmesTru')
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
-            .attr('opacity', 1);
-
-        //Highlight CarlosHolmesTru following
-        g.selectAll('.node image')
-            .filter(d => isFollowedBy(d, 'CarlosHolmesTru', edges))
-            .classed('greyed', false)
-            .transition()
-            .duration(600)
-            .attr('x', -22)
-            .attr('y', -22)
-            .attr('width', 44)
-            .attr('height', 44)
-            .attr('opacity', 1);
-
-        //Hide others
-        g.selectAll('.node image')
-            .filter(d => !isFollowedBy(d, 'CarlosHolmesTru', edges))
-            .filter(d => d.screenName !== 'CarlosHolmesTru')
-            .classed('greyed', true)
-            .transition()
-            .duration(600)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 0.7);
-
-        //Highlight CarlosHolmesTru links
-        g.selectAll('.link')
-            .transition()
-            .duration(600)
-            .attr('opacity', d => d.source.screenName === 'CarlosHolmesTru' ? 1 : 0);
-
-        g.selectAll('.node')
-            .on('mouseover', null)
-            .on('mouseout', null);
+        highlightNodeAndFollowing('CarlosHolmesTru', edges);
     }
 
     function explore(graphNodes, edges) {
+
+        exploring = true;
+
+        //Hide tooltip
+        tooltipDiv.transition()
+            .duration(0)
+            .style('opacity', 0);
 
         d3.select('#following_button')
             .on('click', () => onClickFollowing(graphNodes, edges));
@@ -705,10 +617,10 @@ let scrollVis = function () {
             .classed('greyed', false)
             .transition()
             .duration(0)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2)
             .attr('opacity', 1);
 
         //Hide all links
@@ -734,7 +646,7 @@ let scrollVis = function () {
 
         g.selectAll('.node')
             .on('mouseover', (d, i, nodes) => onMouseOverFollowersGraph(d, i, nodes, edges))
-            .on('mouseout', onMouseOutFollowersGraph)
+            .on('mouseout', (d, i, nodes) => onMouseOutFollowersGraph(d, i, nodes))
             .transition()
             .duration(600)
             .attr('transform', d => `translate(${politicalX(d)}, ${followersY(d, edges)})`);
@@ -748,6 +660,118 @@ let scrollVis = function () {
             .attr('x2', d => politicalX(d.target))
             .attr('y2', d => followersY(d.target, edges));
 
+    }
+
+    function higlightNodeAndFollowers(screenName, edges) {
+        console.log(`exploring is ${exploring}`);
+        // Higlight node
+        g.selectAll('.node')
+            .filter(d => d.screenName === screenName)
+            .on('mouseover', (d, i, nodes) => exploring ? onMouseOverFollowersGraph(d, i, nodes, edges) : onMouseOverPresenting(d))
+            .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : onMouseOutPresenting())
+            .raise()
+            .select('image')
+            .classed('greyed', false)
+            .transition()
+            .duration(600)
+            .attr('x', 0 - mainNodeR)
+            .attr('y', 0 - mainNodeR)
+            .attr('width', mainNodeR * 2)
+            .attr('height', mainNodeR * 2)
+            .attr('opacity', 1);
+
+        //Highlight following
+        g.selectAll('.node')
+            .filter(d => isFollower(d, screenName, edges))
+            .on('mouseover', (d, i, nodes) => exploring ? onMouseOverFollowersGraph(d, i, nodes, edges) : onMouseOverPresenting(d))
+            .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : onMouseOutPresenting())
+            .select('image')
+            .classed('greyed', false)
+            .transition()
+            .duration(600)
+            .attr('x', 0 - neighNodeR)
+            .attr('y', 0 - neighNodeR)
+            .attr('width', neighNodeR * 2)
+            .attr('height', neighNodeR * 2)
+            .attr('opacity', 1);
+
+        //Hide others
+        g.selectAll('.node')
+            .filter(d => !isFollower(d, screenName, edges))
+            .filter(d => d.screenName !== screenName)
+            .on('mouseover',  (d, i, nodes) => exploring ? onMouseOverFollowersGraph(d, i, nodes, edges) : null)
+            .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : null)
+            .select('image')
+            .classed('greyed', true)
+            .transition()
+            .duration(600)
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2)
+            .attr('opacity', 0.7);
+
+        //Highlight links
+        g.selectAll('.link')
+            .transition()
+            .duration(600)
+            .attr('opacity', d => d.target.screenName === screenName ? 1 : 0);
+    }
+
+    function highlightNodeAndFollowing(screenName, edges) {
+        // Higlight node
+        console.log(`exploring is ${exploring}`);
+        g.selectAll('.node')
+            .filter(d => d.screenName === screenName)
+            .on('mouseover', (d, i, nodes) => exploring ? onMouseOverFollowingGraph(d, i, nodes, edges) : onMouseOverPresenting(d))
+            .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : onMouseOutPresenting())
+            .raise()
+            .select('image')
+            .classed('greyed', false)
+            .transition()
+            .duration(600)
+            .attr('x', 0 - mainNodeR)
+            .attr('y', 0 - mainNodeR)
+            .attr('width', mainNodeR * 2)
+            .attr('height', mainNodeR * 2)
+            .attr('opacity', 1);
+
+        //Highlight following
+        g.selectAll('.node')
+            .filter(d => isFollowedBy(d, screenName, edges))
+            .on('mouseover', (d, i, nodes) => exploring ? onMouseOverFollowingGraph(d, i, nodes, edges) : onMouseOverPresenting(d))
+            .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : onMouseOutPresenting())
+            .select('image')
+            .classed('greyed', false)
+            .transition()
+            .duration(600)
+            .attr('x', 0 - neighNodeR)
+            .attr('y', 0 - neighNodeR)
+            .attr('width', neighNodeR * 2)
+            .attr('height', neighNodeR * 2)
+            .attr('opacity', 1);
+
+        //Hide others
+        g.selectAll('.node')
+            .filter(d => !isFollowedBy(d, screenName, edges))
+            .filter(d => d.screenName !== screenName)
+            .on('mouseover',  (d, i, nodes) => exploring ? onMouseOverFollowingGraph(d, i, nodes, edges) : null)
+            .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : null)
+            .select('image')
+            .classed('greyed', true)
+            .transition()
+            .duration(600)
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2)
+            .attr('opacity', 0.7);
+
+        //Highlight links
+        g.selectAll('.link')
+            .transition()
+            .duration(600)
+            .attr('opacity', d => d.source.screenName === screenName ? 1 : 0);
     }
 
 
@@ -817,10 +841,10 @@ let scrollVis = function () {
             .classed('greyed', false)
             .transition()
             .duration(0)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR * 2)
             .attr('opacity', 1);
 
         //Hide all links
@@ -896,98 +920,46 @@ let scrollVis = function () {
     }
 
     function onMouseOverFollowersGraph(d, i, nodes, edges) {
-        // Higlight this
-        d3.select(nodes[i])
-            .select('image')
-            .classed('greyed', false)
-            .transition()
-            .duration(200)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
-            .attr('opacity', 1);
 
-        //Highlight followers
-        g.selectAll('.node image')
-            .filter(f => isFollower(f, d.screenName, edges))
-            .classed('greyed', false)
-            .transition()
+        tooltipDiv.transition()
             .duration(200)
-            .attr('x', -22)
-            .attr('y', -22)
-            .attr('width', 44)
-            .attr('height', 44)
-            .attr('opacity', 1);
+            .style('opacity', 0.7);
+        tooltipDiv.html(`${d.name}`)
+            .style('left', d3.event.pageX + 'px')
+            .style('top', d3.event.pageY + 'px');
 
-        //Hide others
-        g.selectAll('.node image')
-            .filter(f => !isFollower(f, d.screenName, edges))
-            .filter(f => d.screenName !== f.screenName)
-            .classed('greyed', true)
-            .transition()
+        higlightNodeAndFollowers(d.screenName, edges);
+    }
+
+    function onMouseOverPresenting(d) {
+        tooltipDiv.transition()
             .duration(200)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 0.7);
-
-        //Highlight JERobledo links
-        g.selectAll('.link')
-            .transition()
-            .duration(200)
-            .attr('opacity', l => l.target.screenName === d.screenName ? 1 : 0);
-
+            .style('opacity', 0.7);
+        tooltipDiv.html(`${d.name}`)
+            .style('left', d3.event.pageX + 'px')
+            .style('top', d3.event.pageY + 'px');
     }
 
     function onMouseOverFollowingGraph(d, i, nodes, edges) {
-        // Higlight this
-        d3.select(nodes[i])
-            .select('image')
-            .classed('greyed', false)
-            .transition()
-            .duration(200)
-            .attr('x', -30)
-            .attr('y', -30)
-            .attr('width', 60)
-            .attr('height', 60)
-            .attr('opacity', 1);
 
-        //Highlight followers
-        g.selectAll('.node image')
-            .filter(f => isFollowedBy(f, d.screenName, edges))
-            .classed('greyed', false)
-            .transition()
+        tooltipDiv.transition()
             .duration(200)
-            .attr('x', -22)
-            .attr('y', -22)
-            .attr('width', 44)
-            .attr('height', 44)
-            .attr('opacity', 1);
+            .style('opacity', 0.7);
+        tooltipDiv.html(`${d.name}`)
+            .style('left', d3.event.pageX + 'px')
+            .style('top', d3.event.pageY + 'px');
 
-        //Hide others
-        g.selectAll('.node image')
-            .filter(f => !isFollowedBy(f, d.screenName, edges))
-            .filter(f => d.screenName !== f.screenName)
-            .classed('greyed', true)
-            .transition()
-            .duration(200)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
-            .attr('opacity', 0.7);
-
-        //Highlight JERobledo links
-        g.selectAll('.link')
-            .transition()
-            .duration(200)
-            .attr('opacity', l => l.source.screenName === d.screenName ? 1 : 0);
-
+        highlightNodeAndFollowing(d.screenName, edges);
     }
 
     function onMouseOutFollowersGraph(d, i, nodes) {
+
+        console.log('out');
+
+        tooltipDiv.transition()
+            .duration(200)
+            .style('opacity', 0);
+
         //Hide all links
         g.selectAll('.link')
             .transition()
@@ -999,12 +971,18 @@ let scrollVis = function () {
             .classed('greyed', false)
             .transition()
             .duration(200)
-            .attr('x', -20)
-            .attr('y', -20)
-            .attr('width', 40)
-            .attr('height', 40)
+            .attr('x', 0 - nodeR)
+            .attr('y', 0 - nodeR)
+            .attr('width', nodeR * 2)
+            .attr('height', nodeR *2)
             .attr('opacity', 1);
 
+    }
+
+    function onMouseOutPresenting() {
+        tooltipDiv.transition()
+            .duration(200)
+            .style('opacity', 0);
     }
 
     /**
