@@ -41,7 +41,8 @@ let scrollVis = function () {
     // progress through the section.
     let updateFunctions = [];
 
-    let colorScale = d3.scaleOrdinal().range(['#FF5733', '#C70039', '#900C3F', '#581845']);
+    let colorScale = d3.scaleOrdinal()
+        .range(['#FF5733', '#C70039', '#900C3F', '#581845']);
     // let colorScale = d3.scaleOrdinal().range(['#AFFFF9', '#102542', '#DAF7A6', '#581845']);
 
     //Parse date
@@ -53,20 +54,24 @@ let scrollVis = function () {
 
     //Y Axis
     var y = d3.scaleLinear()
-        .range([height-400, 0]);
+        .range([height - 400, 0]);
 
     //Line
     var line = d3.line()
-        .x(function(d) { return d.created_at })
-        .y(function(d) { return d.retweets });
+        .x(function (d) {
+            return d.created_at;
+        })
+        .y(function (d) {
+            return d.retweets;
+        });
 
     const yAxis = d3.axisRight(y)
         .tickSize(width)
         .tickFormat(function (d) {
-          let sub = y(d) - y.range()[1];
-          return sub > 6.53
-              ? "\xa0" + d
-              : d + " seguidores";
+            let sub = y(d) - y.range()[1];
+            return sub > 6.53
+                ? "\xa0" + d
+                : d + " seguidores";
         });
 
     /**
@@ -125,53 +130,55 @@ let scrollVis = function () {
             .attr('y', height / 15)
             .text('¿QUIÉN USA BOTS?');
 
-      g.append('text')
-          .attr('class', 'sub-title vis-title')
-          .attr('x', width / 2)
-          .attr('y', (height / 15) + (height / 15))
-          .text("Algunos candidatos hacen uso de bots para aumentar su popularidad");
+        g.append('text')
+            .attr('class', 'sub-title vis-title')
+            .attr('x', width / 2)
+            .attr('y', (height / 15) + (height / 15))
+            .text("Algunos candidatos hacen uso de bots para aumentar su popularidad");
 
-      g.append('text')
-          .attr('class', 'sub-title vis-title')
-          .attr('x', width / 2)
-          .attr('y', (height / 15) + (height / 20) + (height / 15))
-          .text("en redes. Un indicio seguro de esto son picos extraños en la cantidad");
+        g.append('text')
+            .attr('class', 'sub-title vis-title')
+            .attr('x', width / 2)
+            .attr('y', (height / 15) + (height / 20) + (height / 15))
+            .text("en redes. Un indicio seguro de esto son picos extraños en la cantidad");
 
-      g.append('text')
-          .attr('class', 'sub-title vis-title')
-          .attr('x', width / 2)
-          .attr('y', (height / 15) + (height / 20) + (height / 20) + (height / 15))
-          .attr('margin-bottom', '50px')
-          .text("de retweets por segundo.");
+        g.append('text')
+            .attr('class', 'sub-title vis-title')
+            .attr('x', width / 2)
+            .attr('y', (height / 15) + (height / 20) + (height / 20) + (height / 15))
+            .attr('margin-bottom', '50px')
+            .text("de retweets por segundo.");
 
-      g.append('i')
-          .text("de retweets por segundo.");
+        g.append('i')
+            .text("de retweets por segundo.");
 
-      g.selectAll('.vis-title')
-          .attr('opacity', 0);
+        g.selectAll('.vis-title')
+            .attr('opacity', 0);
 
-      g.append('g')
-          .classed('y-axis', true)
-          .attr('opacity', 0)
-          .call(customYAxis);
+        g.append('g')
+            .classed('y-axis', true)
+            .attr('opacity', 0)
+            .call(customYAxis);
 
         g.append('g')
             .classed('areas', true);
 
-      colorScale.domain([rawData[1].id_tweet].concat(rawData[0].map(d => d.id_tweet)));
+        colorScale.domain([rawData[1].id_tweet].concat(rawData[0].map(d => d.id_tweet)));
 
-      setupSections(rawData);
+        setupSections(rawData);
     };
 
-    var paintVis = function(tweet) {
+    var paintVis = function (tweet) {
 
         d3.select("#rectClip rect")
-            .transition().duration(0)
+            .transition()
+            .duration(0)
             //.attr("width", 0);
             .attr('height', 0);
 
         d3.select("#rectClip rect")
-            .transition().duration(600)
+            .transition()
+            .duration(600)
             //.attr("width", width);
             .attr("height", width);
 
@@ -180,10 +187,15 @@ let scrollVis = function () {
 
         var count = 0;
 
-      var nested = d3.nest()
-          .key(function(d) { return parseDate(d.created_at); })
-          .rollup(function (d) { count += d.length; return count; })
-          .entries(retweets);
+        var nested = d3.nest()
+            .key(function (d) {
+                return parseDate(d.created_at);
+            })
+            .rollup(function (d) {
+                count += d.length;
+                return count;
+            })
+            .entries(retweets);
 
         nested = nested.filter(d => d.value <= 200);
 
@@ -196,12 +208,20 @@ let scrollVis = function () {
                 return y(d.value);
             });
 
-      var line = d3.line()
-          .x(function(d) { return x(new Date(d.key)); })
-          .y(function(d) { return y(d.value); });
+        var line = d3.line()
+            .x(function (d) {
+                return x(new Date(d.key));
+            })
+            .y(function (d) {
+                return y(d.value);
+            });
 
-      y.domain(d3.extent(nested, function(d){ return d.value }));
-      x.domain(d3.extent(nested, function(d){ return new Date(d.key) }));
+        y.domain(d3.extent(nested, function (d) {
+            return d.value;
+        }));
+        x.domain(d3.extent(nested, function (d) {
+            return new Date(d.key);
+        }));
 
         g.selectAll('.vis-title')
             .transition()
@@ -228,7 +248,8 @@ let scrollVis = function () {
             .attr("clip-path", "url(#rectClip)")
             .attr("fill", () => colorScale(tweet.id_tweet))
             .attr("stroke", "none")
-            .attr("d", area);
+            .attr("d", area)
+            .attr('opacity', 1);
 
         g.select('.y-axis')
             .raise()
@@ -293,27 +314,27 @@ let scrollVis = function () {
      *
      */
     function showTitle() {
-      //Hide vis
-      g.select('.line')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        //Hide vis
+        g.select('.line')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
 
-      g.select('.area')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        g.select('.area')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
 
-      //Show title
-      g.selectAll('.vis-title')
-          .transition()
-          .duration(600)
-          .attr('opacity', 1.0);
+        //Show title
+        g.selectAll('.vis-title')
+            .transition()
+            .duration(600)
+            .attr('opacity', 1.0);
 
-      g.select('.y-axis')
-          .transition()
-          .duration(0)
-          .attr('opacity', 0);
+        g.select('.y-axis')
+            .transition()
+            .duration(0)
+            .attr('opacity', 0);
     }
 
 
