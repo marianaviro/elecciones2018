@@ -4,17 +4,32 @@
 <head>
   <title>¿Quién sigue a quién?</title>
   <meta charset="utf-8" />
-  <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,200,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,200,500,800" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+  <div id="nav">
+    <nav>
+
+      <img src="../img/logo-semana-w.svg" />
+      <div>
+        <a href="../">HOME</a>
+        <a href="../presidential_retweet_ranking">¿CUÁNTOS SEGUIDORES TIENEN?</a>
+        <a href="../presidential_followers">¿QUIÉN SIGUE A QUIÉN?</a>
+        <a href="#">¿QUIÉN USA BOTS?</a>
+      </div>
+    </nav>
+  </div>
   <div class="container">
     <div id="graphic">
       <div id="sections">
         <section class="step">
-          <div class="title"></div>
+          <div class="title">
+            <img src="../img/historia_4.jpg" />
+          </div>
         </section>
         <section class="step">
           <div class="title">¿Qué tantos seguidores tiene cada candidato entre los otros?</div>
@@ -39,10 +54,11 @@
           Robledo es el que más seguidores acumula entre los otros candidatos logrando llegar a 13 seguidores de todos
           los espectros políticos. Empata con ...
         </section>
+        <section class="step">
+          <div class="title"></div>
+        </section>
       </div>
       <div id="vis">
-      </div>
-      <div id="extra-space">
       </div>
     </div>
   </div>
@@ -52,6 +68,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
   <script src="js/scroller.js"></script>
   <script src="js/sections.js"></script>
+  <script src="https://use.fontawesome.com/cd8950381c.js"></script>
 </body>
 
 </html>

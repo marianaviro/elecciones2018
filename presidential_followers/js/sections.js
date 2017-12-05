@@ -147,13 +147,13 @@ let scrollVis = function () {
         g.append('text')
             .attr('class', 'title vis-title')
             .attr('x', width / 2)
-            .attr('y', height / 3)
-            .text('¿Quién sigue a quién?');
+            .attr('y', height / 5)
+            .text('¿QUIÉN SIGUE A QUIÉN?');
 
         g.append('text')
             .attr('class', 'sub-title vis-title')
             .attr('x', width / 2)
-            .attr('y', (height / 3) + (height / 5))
+            .attr('y', (height / 5) + (height / 10))
             .text('Las redes entre los candidatos');
 
         g.selectAll('.vis-title')

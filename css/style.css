@@ -1,11 +1,50 @@
 html {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 100;
+  height: 100%;
+}
+
+body {
+  background-color: #AC1A1F;
+  height: 100%;
 }
 
 .container {
-  width: 890px;
-  margin-left: 100px;
+  width: 100%;
+  margin: 0px;
+  height: 80%;
+  padding: 200px;
+  padding-top: 150px;
+}
+
+.container .title {
+  text-anchor: middle;
+  text-align: center;
+}
+
+.image img{
+  width: 100%;
+}
+
+.image {
+  height: 200px;
+  width: 100%;
+  background-image: url('../img/section-bg-verbatims.jpg');
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 80px;
+  letter-spacing: 5px;
+}
+
+h3 {
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
 }
 
 #graphic {
