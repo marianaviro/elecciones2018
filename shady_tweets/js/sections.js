@@ -42,7 +42,6 @@ let scrollVis = function () {
     let updateFunctions = [];
 
     let colorScale = d3.scaleOrdinal().range(['#FF5733', '#C70039', '#900C3F', '#581845']);
-    // let colorScale = d3.scaleLinear().range(['#FF5733', '#581845']);
 
     //Parse date
     var parseDate = d3.timeParse("%Y-%m-%dT%H:%M:%S.%LZ");
@@ -64,7 +63,6 @@ let scrollVis = function () {
         .tickSize(width)
         .tickFormat(function (d) {
           let sub = y(d) - y.range()[1];
-          console.log(y(d) - y.range()[1]);
           return sub > 6.53
               ? "\xa0" + d
               : d + " seguidores";
@@ -119,13 +117,24 @@ let scrollVis = function () {
           .attr('y', height / 15)
           .text('¿QUIÉN USA BOTS?');
 
-      var descr = "Algunos candidatos hacen uso de bots para aumentar su popularidad" + '\n' + "en redes. Un indicio seguro de esto son picos extraños en la cantidad" + '\n' + "de retweets por segundo.";
-
       g.append('text')
           .attr('class', 'sub-title vis-title')
           .attr('x', width / 2)
           .attr('y', (height / 15) + (height / 15))
-          .text(descr);
+          .text("Algunos candidatos hacen uso de bots para aumentar su popularidad");
+
+      g.append('text')
+          .attr('class', 'sub-title vis-title')
+          .attr('x', width / 2)
+          .attr('y', (height / 15) + (height / 20) + (height / 15))
+          .text("en redes. Un indicio seguro de esto son picos extraños en la cantidad");
+
+      g.append('text')
+          .attr('class', 'sub-title vis-title')
+          .attr('x', width / 2)
+          .attr('y', (height / 15) + (height / 20) + (height / 20) + (height / 15))
+          .attr('margin-bottom', '50px')
+          .text("de retweets por segundo.");
 
       g.selectAll('.vis-title')
           .attr('opacity', 0);
@@ -170,6 +179,11 @@ let scrollVis = function () {
           .duration(0)
           .attr('opacity', 0);
 
+      g.selectAll('.step .title')
+          .transition()
+          .duration(0)
+          .attr('opacity', 0);
+
       g.select('.area')
           .transition()
           .duration(0)
@@ -205,8 +219,6 @@ let scrollVis = function () {
           .duration(600)
           .attr('opacity', 1)
           .call(customYAxis);
-
-
     }
 
     /**
@@ -378,6 +390,10 @@ function display(data) {
         d3.selectAll('.step')
             .style('opacity', function (d, i) {
                 return i === index ? 1 : 0.1;
+            });
+        d3.selectAll('.step .title')
+            .style('opacity', function (d, i) {
+                return i === index ? 1 : 0;
             });
 
         // activate current section
