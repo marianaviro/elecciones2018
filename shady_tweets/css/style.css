@@ -34,10 +34,15 @@ html {
   color: #707070;
 }
 
+.handler {
+  text-align: right;
+}
+
 #sections .title {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 20px;
-  font-weight: bold;
+  font-style: italic;
+  font-weight: normal;
   margin-bottom: 2px;
   color: #262626;
   line-height: 1.2em;
