@@ -155,7 +155,7 @@ let scrollVis = function() {
 			.attr('class', 'sub-title vis-title')
 			.attr('x', width / 2)
 			.attr('y', height / 5 + height / 10 + 100)
-			.text('Con base en más de 100.000 retweets de candidatos');
+			.text('Con base en más de 115.000 retweets de candidatos hechos en los últimos 7 días');
 
 		g.selectAll('.vis-title').attr('opacity', 0);
 
