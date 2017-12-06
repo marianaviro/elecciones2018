@@ -338,7 +338,7 @@ let scrollVis = function () {
 
         //Show nodes
         g.selectAll('.node')
-            .on('mouseover', (d, i, nodes) => onMouseOverFollowingGraph(d, i, nodes, edges))
+            .on('mouseover', (d, i, nodes) => onMouseOverFollowersGraph(d, i, nodes, edges))
             .on('mouseout', onMouseOutFollowersGraph)
             .select('image')
             .classed('greyed', false)
