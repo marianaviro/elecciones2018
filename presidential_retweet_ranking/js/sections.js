@@ -5,6 +5,7 @@
  * http://bost.ocks.org/mike/chart/
  */
 let scrollVis = function() {
+<<<<<<< HEAD
   // constants to define the size
   // and margins of the vis area.
   let width = 810;
@@ -114,6 +115,111 @@ let scrollVis = function() {
         .attr(
           'values',
           `0 1 0 0 0
+=======
+	// constants to define the size
+	// and margins of the vis area.
+	let width = 810;
+	let height = 600;
+	let margin = { top: 0, left: 30, bottom: 40, right: 10 };
+
+	var dimensions = {
+		height: 600,
+		width: 810,
+		margin_left: 34,
+		margin_top: 0,
+		margin_right: 10,
+		margin_bottom: 40
+	};
+
+	const { margin_bottom, margin_left, margin_right } = dimensions;
+
+	// Keep track of which visualization
+	// we are on and which was the last
+	// index activated. When user scrolls
+	// quickly, we want to call all the
+	// activate functions that they pass.
+	let lastIndex = -1;
+	let activeIndex = 0;
+
+	// Sizing for the grid visualization
+	let squareSize = 6;
+	let squarePad = 2;
+	let numPerRow = width / (squareSize + squarePad);
+
+	// main svg used for visualization
+	let svg = null;
+
+	// d3 selection that will be used
+	// for displaying visualizations
+	let g = null;
+
+	// When scrolling to a new section
+	// the activation function for that
+	// section is called.
+	let activateFunctions = [];
+	// If a section has an update function
+	// then it is called while scrolling
+	// through the section with the current
+	// progress through the section.
+	let updateFunctions = [];
+
+	var colors = d3.scaleOrdinal(d3.schemeCategory20);
+
+	var yScale = d3
+		.scaleLinear()
+		//.domain([0, yMax])
+		.range([dimensions.height - dimensions.margin_top, dimensions.margin_bottom]);
+
+	var xScale = d3
+		.scaleBand()
+		//.domain(xDomain)
+		.range([dimensions.margin_left + 30, dimensions.width - dimensions.margin_right]);
+
+	var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ');
+	var first_day = parser('2017-12-02T18:00:00.477Z');
+	var last_day = parser('2017-12-10T18:00:00.514Z');
+
+	var xScaleTime = d3
+		.scaleTime()
+		.domain([first_day, last_day])
+		.rangeRound([0 + margin_left, width - margin_right]);
+
+	var yScaleLine = d3
+		.scaleLinear()
+		//.domain([0, yMax])
+		.range([height - margin_bottom, 0]);
+
+	var yAxis = d3.axisLeft().scale(yScale);
+	var xAxis = d3.axisBottom().scale(xScaleTime);
+
+	/**
+	 * chart
+	 *
+	 * @param selection - the current d3 selection(s)
+	 *  to draw the visualization in. For this
+	 *  example, we will be drawing it in #vis
+	 */
+	var chart = function(selection) {
+		selection.each(function(rawData) {
+			// create svg and give it a width and height
+			svg = d3
+				.select(this)
+				.selectAll('svg')
+				.data([0]);
+			var svgE = svg.enter().append('svg');
+			// @v4 use merge to combine enter and existing selection
+			svg = svg.merge(svgE);
+
+			svg
+				.append('defs')
+				.append('filter')
+				.attr('id', 'greyscale')
+				.append('feColorMatrix')
+				.attr('type', 'matrix')
+				.attr(
+					'values',
+					`0 1 0 0 0
+>>>>>>> 7c5659bf32d61304a026f23711a34ae4917b176c
                   0 1 0 0 0
                   0 1 0 0 0
                   0 1 0 1 0 `
