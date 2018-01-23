@@ -66,7 +66,7 @@ let scrollVis = function() {
 
 	var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ');
 	var first_day = parser('2017-12-02T18:00:00.477Z');
-	var last_day = parser('2017-12-29T20:00:00.514Z');
+	var last_day = parser('2018-01-29T20:00:00.514Z');
 
 	var xScaleTime = d3
 		.scaleTime()
