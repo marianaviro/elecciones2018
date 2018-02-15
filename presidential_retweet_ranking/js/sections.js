@@ -808,7 +808,7 @@ let scrollVis = function() {
 			.attr('opacity', 0);
 
 		g
-			.selectAll('.RafaNietoLoaiza_exit')
+			.selectAll('.IvanDuque_exit')
 			.transition()
 			.duration(1200)
 			.attr('opacity', 1);
