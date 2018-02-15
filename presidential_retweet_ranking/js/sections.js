@@ -66,7 +66,7 @@ let scrollVis = function() {
 
 	var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ');
 	var first_day = parser('2017-12-02T18:00:00.477Z');
-	var last_day = parser('2018-01-29T20:00:00.514Z');
+	var last_day = parser('2018-02-20T20:00:00.514Z');
 
 	var xScaleTime = d3
 		.scaleTime()
@@ -221,7 +221,9 @@ let scrollVis = function() {
 			.tip()
 			.attr('class', 'd3-tip arriba')
 			.offset([-10, 0])
-			.html(d => `<strong>${d.name} - ${d.twitter_handle} - ${d.cuenta_retweets} retweets</strong>`);
+			.html(
+				d => `<strong>${d.name} - ${d.twitter_handle} - ${d.cuenta_retweets} retweets</strong>`
+			);
 		g.call(tip);
 
 		images = images
@@ -1224,14 +1226,15 @@ function display(data) {
 	});
 }
 
-// const ROOT_URL = 'http://localhost:6001';
-const ROOT_URL = 'https://api_twitter.fabioespinosa.com';
+const ROOT_URL = 'http://localhost:6001';
+// const ROOT_URL = 'https://api_twitter.fabioespinosa.com';
 
 d3
 	.queue()
 	.defer(d3.json, `${ROOT_URL}/viz_retweets`)
 	.defer(d3.json, `${ROOT_URL}/candidate_growth`)
 	.awaitAll((error, results) => {
+		console.log(results);
 		results[1].forEach(candidato => {
 			candidato.growth = candidato.growth.slice(27);
 			for (var i = 0; i < candidato.growth.length; i++) {
