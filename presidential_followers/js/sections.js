@@ -71,7 +71,7 @@ let scrollVis = function () {
 
     const simulation = d3.forceSimulation()
         .force('link', d3.forceLink()
-            .id(d => d.screenName));
+            .id(d => d.twitter_handle));
 
     /**
      * chart
@@ -201,11 +201,11 @@ let scrollVis = function () {
         let nodes = g.append('g')
             .classed('nodes', true)
             .selectAll('.node')
-            .data(graphNodes, d => d.screenName);
+            .data(graphNodes, d => d.twitter_handle);
 
         const nodesE = nodes.enter()
             .append('g')
-            .attr('id', d => d.screenName)
+            .attr('id', d => d.twitter_handle)
             .classed('node', true);
 
         nodes = nodes.merge(nodesE)
@@ -214,7 +214,7 @@ let scrollVis = function () {
         nodes
             .append('image')
             .attr('opacity', 0)
-            .attr('xlink:href', d => d.img.replace('normal', 'bigger'))
+            .attr('xlink:href', d => d.photo_url.replace('normal', 'bigger'))
             .attr('x', 0 - nodeR)
             .attr('y', 0 - nodeR)
             .attr('width', nodeR * 2)
@@ -368,7 +368,7 @@ let scrollVis = function () {
 
         // Higlight TimoFARC
         g.selectAll('.node')
-            .filter(d => d.screenName === 'TimoFARC' || d.screenName === 'LuisAlfreRamos')
+            .filter(d => d.twitter_handle === 'TimoFARC' || d.twitter_handle === 'LuisAlfreRamos')
             .on('mouseover', (d) => onMouseOverPresenting(d))
             .on('mouseout', () => onMouseOutPresenting())
             .select('image')
@@ -399,7 +399,7 @@ let scrollVis = function () {
         //Hide others
         g.selectAll('.node')
             .filter(d => !isFollower(d, 'TimoFARC', edges) && !isFollower(d, 'LuisAlfreRamos', edges))
-            .filter(d => d.screenName !== 'TimoFARC' && d.screenName !== 'LuisAlfreRamos')
+            .filter(d => d.twitter_handle !== 'TimoFARC' && d.twitter_handle !== 'LuisAlfreRamos')
             .on('mouseover', null)
             .on('mouseout', null)
             .select('image')
@@ -416,7 +416,7 @@ let scrollVis = function () {
         g.selectAll('.link')
             .transition()
             .duration(600)
-            .attr('opacity', d => d.target.screenName === 'TimoFARC' || d.target.screenName === 'LuisAlfreRamos' ? 1 : 0);
+            .attr('opacity', d => d.target.twitter_handle === 'TimoFARC' || d.target.twitter_handle === 'LuisAlfreRamos' ? 1 : 0);
 
         g.select('.y-axis')
             .transition()
@@ -666,7 +666,7 @@ let scrollVis = function () {
         console.log(`exploring is ${exploring}`);
         // Higlight node
         g.selectAll('.node')
-            .filter(d => d.screenName === screenName)
+            .filter(d => d.twitter_handle === screenName)
             .on('mouseover', (d, i, nodes) => exploring ? onMouseOverFollowersGraph(d, i, nodes, edges) : onMouseOverPresenting(d))
             .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : onMouseOutPresenting())
             .raise()
@@ -698,7 +698,7 @@ let scrollVis = function () {
         //Hide others
         g.selectAll('.node')
             .filter(d => !isFollower(d, screenName, edges))
-            .filter(d => d.screenName !== screenName)
+            .filter(d => d.twitter_handle !== screenName)
             .on('mouseover',  (d, i, nodes) => exploring ? onMouseOverFollowersGraph(d, i, nodes, edges) : null)
             .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : null)
             .select('image')
@@ -715,14 +715,14 @@ let scrollVis = function () {
         g.selectAll('.link')
             .transition()
             .duration(600)
-            .attr('opacity', d => d.target.screenName === screenName ? 1 : 0);
+            .attr('opacity', d => d.target.twitter_handle === screenName ? 1 : 0);
     }
 
     function highlightNodeAndFollowing(screenName, edges) {
         // Higlight node
         console.log(`exploring is ${exploring}`);
         g.selectAll('.node')
-            .filter(d => d.screenName === screenName)
+            .filter(d => d.twitter_handle === screenName)
             .on('mouseover', (d, i, nodes) => exploring ? onMouseOverFollowingGraph(d, i, nodes, edges) : onMouseOverPresenting(d))
             .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : onMouseOutPresenting())
             .raise()
@@ -754,7 +754,7 @@ let scrollVis = function () {
         //Hide others
         g.selectAll('.node')
             .filter(d => !isFollowedBy(d, screenName, edges))
-            .filter(d => d.screenName !== screenName)
+            .filter(d => d.twitter_handle !== screenName)
             .on('mouseover',  (d, i, nodes) => exploring ? onMouseOverFollowingGraph(d, i, nodes, edges) : null)
             .on('mouseout', (d, i, nodes) => exploring ? onMouseOutFollowersGraph(d, i, nodes) : null)
             .select('image')
@@ -771,7 +771,7 @@ let scrollVis = function () {
         g.selectAll('.link')
             .transition()
             .duration(600)
-            .attr('opacity', d => d.source.screenName === screenName ? 1 : 0);
+            .attr('opacity', d => d.source.twitter_handle === screenName ? 1 : 0);
     }
 
 
@@ -797,22 +797,22 @@ let scrollVis = function () {
 
     function isFollower(node, targetScreenName, edges) {
         return edges
-            .filter(e => e.target.screenName === targetScreenName)
-            .find(e => e.source.screenName === node.screenName) !== undefined;
+            .filter(e => e.target.twitter_handle === targetScreenName)
+            .find(e => e.source.twitter_handle === node.twitter_handle) !== undefined;
     }
 
     function isFollowedBy(node, sourceScreenName, edges) {
         return edges
-            .filter(e => e.source.screenName === sourceScreenName)
-            .find(e => e.target.screenName === node.screenName) !== undefined;
+            .filter(e => e.source.twitter_handle === sourceScreenName)
+            .find(e => e.target.twitter_handle === node.twitter_handle) !== undefined;
     }
 
     function countFollowing(candidate, edges) {
-        return edges.filter(e => e.source.screenName === candidate.screenName).length;
+        return edges.filter(e => e.source.twitter_handle === candidate.twitter_handle).length;
     }
 
     function politicalX(candidate) {
-        return x(candidate.politicalIndex);
+        return x(candidate.political_index);
     }
 
     function followingY(candidate, edges) {
@@ -824,7 +824,7 @@ let scrollVis = function () {
     }
 
     function countFollowers(candidate, edges) {
-        return edges.filter(e => e.target.screenName === candidate.screenName).length;
+        return edges.filter(e => e.target.twitter_handle === candidate.twitter_handle).length;
     }
 
 
@@ -928,7 +928,7 @@ let scrollVis = function () {
             .style('left', d3.event.pageX + 'px')
             .style('top', d3.event.pageY + 'px');
 
-        higlightNodeAndFollowers(d.screenName, edges);
+        higlightNodeAndFollowers(d.twitter_handle, edges);
     }
 
     function onMouseOverPresenting(d) {
@@ -949,7 +949,7 @@ let scrollVis = function () {
             .style('left', d3.event.pageX + 'px')
             .style('top', d3.event.pageY + 'px');
 
-        highlightNodeAndFollowing(d.screenName, edges);
+        highlightNodeAndFollowing(d.twitter_handle, edges);
     }
 
     function onMouseOutFollowersGraph(d, i, nodes) {

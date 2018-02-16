@@ -1,142 +1,182 @@
 [
   {
     "name": "Alejandro Ordóñez",
-    "screenName": "A_OrdonezM",
-    "followers": 87546,
-    "img": "http://pbs.twimg.com/profile_images/857001197034758144/sRucFRXw_normal.jpg",
-    "politicalIndex": "100"
+    "twitter_handle": "A_OrdonezM",
+    "followers": 112154,
+    "photo_url": "http://pbs.twimg.com/profile_images/963089985695035392/USKOKhdh_normal.jpg",
+    "political_index": "100",
+    "created_at": "Wed Nov 12 21:22:09 +0000 2014",
+    "id_str": "2874285407"
   },
   {
-    "name": "Rafael Nieto",
-    "screenName": "RafaNietoLoaiza",
-    "followers": 20365,
-    "img": "http://pbs.twimg.com/profile_images/926273728249520128/ImyaGOoc_normal.jpg",
-    "politicalIndex": "99"
+    "name": "Rafael Nieto Loaiza",
+    "twitter_handle": "RafaNietoLoaiza",
+    "followers": 27188,
+    "photo_url": "http://pbs.twimg.com/profile_images/926273728249520128/ImyaGOoc_normal.jpg",
+    "political_index": "99",
+    "created_at": "Fri May 05 18:36:43 +0000 2017",
+    "id_str": "860563925800235008"
   },
   {
     "name": "Luis Alfredo Ramos",
-    "screenName": "LuisAlfreRamos",
-    "followers": 17696,
-    "img": "http://pbs.twimg.com/profile_images/3379118949/b9ac9ce931cd2825b3be7612c6fa0b52_normal.jpeg",
-    "politicalIndex": "90"
+    "twitter_handle": "LuisAlfreRamos",
+    "followers": 50841,
+    "photo_url": "http://pbs.twimg.com/profile_images/945305543438209024/SEnhF0jF_normal.jpg",
+    "political_index": "90",
+    "created_at": "Fri Aug 07 17:00:55 +0000 2009",
+    "id_str": "63773715"
   },
   {
     "name": "Paloma Valencia L",
-    "screenName": "PalomaValenciaL",
-    "followers": 158482,
-    "img": "http://pbs.twimg.com/profile_images/929367063910592517/srRuJxry_normal.jpg",
-    "politicalIndex": "85"
+    "twitter_handle": "PalomaValenciaL",
+    "followers": 184831,
+    "photo_url": "http://pbs.twimg.com/profile_images/957288385734946817/YS85bB0D_normal.jpg",
+    "political_index": "85",
+    "created_at": "Fri May 28 22:14:20 +0000 2010",
+    "id_str": "149281495"
   },
   {
-    "name": "María del Rosario G.",
-    "screenName": "charoguerra",
-    "followers": 36570,
-    "img": "http://pbs.twimg.com/profile_images/894522631218749441/aIXtta99_normal.jpg",
-    "politicalIndex": "80"
+    "name": "María del Rosario G. CD#2",
+    "twitter_handle": "charoguerra",
+    "followers": 40753,
+    "photo_url": "http://pbs.twimg.com/profile_images/953432693517234176/YRJTjuop_normal.jpg",
+    "political_index": "80",
+    "created_at": "Mon Mar 07 21:53:27 +0000 2011",
+    "id_str": "262349588"
   },
   {
     "name": "Marta Lucía Ramírez",
-    "screenName": "mluciaramirez",
-    "followers": 280882,
-    "img": "http://pbs.twimg.com/profile_images/912434125776281600/XVKM5nKM_normal.jpg",
-    "politicalIndex": "80"
+    "twitter_handle": "mluciaramirez",
+    "followers": 328981,
+    "photo_url": "http://pbs.twimg.com/profile_images/958860915654451202/2TCrCcD7_normal.jpg",
+    "political_index": "80",
+    "created_at": "Tue Oct 05 18:56:20 +0000 2010",
+    "id_str": "198984928"
   },
   {
     "name": "Pinzón Bueno",
-    "screenName": "PinzonBueno",
-    "followers": 19073,
-    "img": "http://pbs.twimg.com/profile_images/921048474858254336/o7zZc_TP_normal.jpg",
-    "politicalIndex": "75"
+    "twitter_handle": "PinzonBueno",
+    "followers": 24377,
+    "photo_url": "http://pbs.twimg.com/profile_images/921048474858254336/o7zZc_TP_normal.jpg",
+    "political_index": "75",
+    "created_at": "Mon Aug 03 18:00:39 +0000 2015",
+    "id_str": "3401638840"
   },
   {
     "name": "Carlos Holmes Trujillo",
-    "screenName": "CarlosHolmesTru",
-    "followers": 71386,
-    "img": "http://pbs.twimg.com/profile_images/517026121322622976/vX_kKZVG_normal.jpeg",
-    "politicalIndex": "75"
+    "twitter_handle": "CarlosHolmesTru",
+    "followers": 75510,
+    "photo_url": "http://pbs.twimg.com/profile_images/517026121322622976/vX_kKZVG_normal.jpeg",
+    "political_index": "75",
+    "created_at": "Sat Aug 06 17:46:08 +0000 2011",
+    "id_str": "349780099"
   },
   {
     "name": "Germán Vargas Lleras",
-    "screenName": "German_Vargas",
-    "followers": 710814,
-    "img": "http://pbs.twimg.com/profile_images/923200143951835136/LLge1ddT_normal.jpg",
-    "politicalIndex": "70"
+    "twitter_handle": "German_Vargas",
+    "followers": 724741,
+    "photo_url": "http://pbs.twimg.com/profile_images/923200143951835136/LLge1ddT_normal.jpg",
+    "political_index": "70",
+    "created_at": "Mon Feb 09 18:58:56 +0000 2009",
+    "id_str": "20456814"
   },
   {
     "name": "Iván Duque",
-    "screenName": "IvanDuque",
-    "followers": 86273,
-    "img": "http://pbs.twimg.com/profile_images/932654065452011526/KKbi3xVS_normal.jpg",
-    "politicalIndex": "70"
+    "twitter_handle": "IvanDuque",
+    "followers": 154369,
+    "photo_url": "http://pbs.twimg.com/profile_images/932654065452011526/KKbi3xVS_normal.jpg",
+    "political_index": "70",
+    "created_at": "Sun Sep 27 03:53:46 +0000 2009",
+    "id_str": "77653794"
   },
   {
     "name": "Humberto de la Calle",
-    "screenName": "DeLaCalleHum",
-    "followers": 36795,
-    "img": "http://pbs.twimg.com/profile_images/932429633227804674/LfSTdTQD_normal.jpg",
-    "politicalIndex": "60"
+    "twitter_handle": "DeLaCalleHum",
+    "followers": 56514,
+    "photo_url": "http://pbs.twimg.com/profile_images/941054950406225920/rvXC0rX9_normal.jpg",
+    "political_index": "60",
+    "created_at": "Mon Jan 23 01:55:01 +0000 2017",
+    "id_str": "823348278830002177"
   },
   {
     "name": "Frank Pearl",
-    "screenName": "FrankPearl",
-    "followers": 25404,
-    "img": "http://pbs.twimg.com/profile_images/928034043739983872/_XJfwC2r_normal.jpg",
-    "politicalIndex": "60"
+    "twitter_handle": "FrankPearl",
+    "followers": 25728,
+    "photo_url": "http://pbs.twimg.com/profile_images/928034043739983872/_XJfwC2r_normal.jpg",
+    "political_index": "60",
+    "created_at": "Mon Aug 10 00:22:26 +0000 2009",
+    "id_str": "64291532"
   },
   {
     "name": "Claudia López",
-    "screenName": "ClaudiaLopez",
-    "followers": 930089,
-    "img": "http://pbs.twimg.com/profile_images/923282240729243648/rUOajDMJ_normal.jpg",
-    "politicalIndex": "45"
+    "twitter_handle": "ClaudiaLopez",
+    "followers": 1011796,
+    "photo_url": "http://pbs.twimg.com/profile_images/961937956696141824/pFkaDtvA_normal.jpg",
+    "political_index": "50",
+    "created_at": "Wed Apr 28 03:12:07 +0000 2010",
+    "id_str": "137908875"
   },
   {
     "name": "Sergio Fajardo",
-    "screenName": "sergio_fajardo",
-    "followers": 935730,
-    "img": "http://pbs.twimg.com/profile_images/926297391787110401/WExwxOt2_normal.jpg",
-    "politicalIndex": "55"
+    "twitter_handle": "sergio_fajardo",
+    "followers": 1049183,
+    "photo_url": "http://pbs.twimg.com/profile_images/926297391787110401/WExwxOt2_normal.jpg",
+    "political_index": "50",
+    "created_at": "Wed Mar 18 23:37:14 +0000 2009",
+    "id_str": "25185308"
   },
   {
     "name": "Juan Fernando Cristo",
-    "screenName": "CristoBustos",
-    "followers": 126547,
-    "img": "http://pbs.twimg.com/profile_images/932993914621059072/NCIlCU62_normal.jpg",
-    "politicalIndex": "40"
+    "twitter_handle": "CristoBustos",
+    "followers": 149017,
+    "photo_url": "http://pbs.twimg.com/profile_images/932993914621059072/NCIlCU62_normal.jpg",
+    "political_index": "40",
+    "created_at": "Tue Aug 18 15:39:43 +0000 2009",
+    "id_str": "66711542"
   },
   {
     "name": "Clara López Obregón",
-    "screenName": "ClaraLopezObre",
-    "followers": 274973,
-    "img": "http://pbs.twimg.com/profile_images/898783749281853440/514lj5oA_normal.jpg",
-    "politicalIndex": "30"
+    "twitter_handle": "ClaraLopezObre",
+    "followers": 290002,
+    "photo_url": "http://pbs.twimg.com/profile_images/958667879762755584/PrvWlRWS_normal.jpg",
+    "political_index": "30",
+    "created_at": "Sat Mar 27 03:49:18 +0000 2010",
+    "id_str": "126832572"
   },
   {
     "name": "Jorge Robledo",
-    "screenName": "JERobledo",
-    "followers": 829113,
-    "img": "http://pbs.twimg.com/profile_images/907368655654146048/DqmgFlHr_normal.jpg",
-    "politicalIndex": "20"
+    "twitter_handle": "JERobledo",
+    "followers": 891637,
+    "photo_url": "http://pbs.twimg.com/profile_images/954042638377914368/LXaNVcTk_normal.jpg",
+    "political_index": "20",
+    "created_at": "Fri Mar 18 14:56:01 +0000 2011",
+    "id_str": "268322810"
   },
   {
     "name": "Gustavo Petro",
-    "screenName": "petrogustavo",
-    "followers": 2731261,
-    "img": "http://pbs.twimg.com/profile_images/782734232410021888/-LH9kmnb_normal.jpg",
-    "politicalIndex": "10"
+    "twitter_handle": "petrogustavo",
+    "followers": 2879633,
+    "photo_url": "http://pbs.twimg.com/profile_images/962471262747529216/Uo8lOkRJ_normal.jpg",
+    "political_index": "10",
+    "created_at": "Tue Jun 23 02:04:11 +0000 2009",
+    "id_str": "49849732"
   },
   {
     "name": "Piedad Córdoba",
-    "screenName": "piedadcordoba",
-    "followers": 726367,
-    "img": "http://pbs.twimg.com/profile_images/896392423949074433/ji206N5x_normal.jpg",
-    "politicalIndex": "10"
+    "twitter_handle": "piedadcordoba",
+    "followers": 733185,
+    "photo_url": "http://pbs.twimg.com/profile_images/896392423949074433/ji206N5x_normal.jpg",
+    "political_index": "10",
+    "created_at": "Fri Apr 24 01:22:25 +0000 2009",
+    "id_str": "34798360"
   },
   {
     "name": "Rodrigo Londoño",
-    "screenName": "TimoFARC",
-    "followers": 113971,
-    "img": "http://pbs.twimg.com/profile_images/898648547003858946/KwS4xMVJ_normal.jpg",
-    "politicalIndex": "0"
+    "twitter_handle": "TimoFARC",
+    "followers": 120250,
+    "photo_url": "http://pbs.twimg.com/profile_images/963868357777739776/SZB3P-n__normal.jpg",
+    "political_index": "0",
+    "created_at": "Thu Sep 06 01:02:35 +0000 2012",
+    "id_str": "805752104"
   }
 ]

@@ -206,7 +206,7 @@ let scrollVis = function() {
 				count += d.values.length;
 				return { key: d.key, value: count };
 			})
-			.filter(d => d.value <= 200);
+			.filter(d => d.value <= 300);
 
 		console.log(nested);
 
